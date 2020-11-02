@@ -714,7 +714,6 @@ a {
   .panel-info-item {
     font-family: Roboto, sans-serif;
     font-size: 12px;
-    margin-bottom: 20px;
   }
 
   .panel-join-background {
@@ -751,7 +750,7 @@ a {
     font-size: 30px;
   }
   .container h2.join,.panel-info h3{
-    font-size: 24px;
+    font-size: 22px;
     background-size: auto 70%;
     padding-bottom: 2%;
   }
@@ -765,11 +764,22 @@ a {
   h3 {
     font-size: 16px;
   }
-
+  .panel-info {
+    margin-bottom: 20px;
+    padding: 20px 20px 20px 20px;
+  }
   .section-top {
     padding: 100px 0 25px;
   }
-
+  .panel-info .pabel-list{
+    padding: 20px;
+  }
+  .footer-content a{
+    height: 50px;
+    line-height: 50px;
+    box-sizing: border-box;
+    padding: 0;
+  }
   .container {
     max-width: 100%;
     padding: 0 10px;
@@ -781,10 +791,13 @@ a {
 
   .counter-wrapper {
     width: 260px;
-    height: 60px;
+    height: 50px;
     line-height: 50px;
   }
-
+  .panel-info-item{
+    margin: 0;
+    line-height: 40px;
+  }
   .odometer.odometer-auto-theme,
   .odometer.odometer-theme-digital {
     line-height: 50px;
