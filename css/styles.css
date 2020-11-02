@@ -750,7 +750,18 @@ a {
   h2 {
     font-size: 30px;
   }
+  .container h2.join,.panel-info h3{
+    font-size: 24px;
+    background-size: auto 70%;
+    padding-bottom: 2%;
+  }
+  .container h2.join{
+    padding-left: 23%;
+  }
+  .panel-info h3{
+    padding-left: 28%;
 
+  }
   h3 {
     font-size: 16px;
   }
@@ -781,13 +792,15 @@ a {
   }
 
   .panel-join-display {
-    font-size: 22px;
+    font-size: 18px;
+    height: 46px;
   }
 
   .panel-join-values a {
-    /*padding: 12px 6px;
-      margin-bottom: 25px;*/
     font-size: 10px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
   }
 
   /*.panel-info {
