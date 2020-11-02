@@ -312,7 +312,6 @@
             setTimeout(function initTimer() {
                 if (!window.tronWeb) return ++tries < 50 ? setTimeout(initTimer, 100) : null;
 
-                debugger
                 self.tron.tronWeb = !!window.tronWeb;
 
                 window.tronWeb.on('addressChanged', function () {
