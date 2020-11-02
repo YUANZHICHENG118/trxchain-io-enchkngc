@@ -369,7 +369,7 @@
         el: '#App',
         data: {
             tab: 'main',
-            contract_address: 'TWLBE6XrL69fgyRLaoqcLzJWMWS4FmLi5c',
+            contract_address: 'TS87ZNihfhRcHHtMp5Ss39AoWjTmhSCNBn',
             upline: '',
             contract: {
                 balance: 0,
@@ -596,24 +596,6 @@
                     });
 
 
-                    async function getUserLastDepositTime() {
-                        await getUserAmountOfDeposits();
-                        if (userAmountOfDeposits > 0) {
-                            let instance = await tronWeb.contract(abi, contractAddress);
-                            let res = await instance.getUserDepositInfo(userAddress, userAmountOfDeposits - 1).call();
-                            userLastDepositTime = tronWeb.toDecimal(res[2]);
-                            userLastDepositTimeFormatted = getFormattedDate(new Date(userLastDepositTime * 1000));
-                            $('.userLastDepositTime').html(userLastDepositTimeFormatted);
-                            $('.withdrawButton').prop('disabled', false);
-                            $('.withdrawButton').css('cursor', 'pointer');
-                            $('.withdrawButton').attr('title', '')
-                        } else {
-                            $('.userLastDepositTime').html('no deposits');
-                            $('.withdrawButton').prop('disabled', true);
-                            $('.withdrawButton').css('cursor', 'not-allowed');
-                            $('.withdrawButton').attr('title', 'Please make deposit first!')
-                        }
-                    }
 
 
                     // contract.contractInfo().call().then(res => {
