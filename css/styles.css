@@ -89,9 +89,10 @@ a {
   position: absolute;
   display: block;
   max-width: 100%;
-  top: 0;
+  top: 114px;
   left: 50%;
   transform: translateX(-50%);
+  width: 65%;
 }
 .section-top .top-heading-mobile {
   position: absolute;
@@ -151,7 +152,7 @@ a {
   position: relative;
   display: block;
   width: 220px;
-  height: 70px;
+  height: 55px;
   font-size: 16px;
   padding: 0;
   margin: 0 auto 25px;
@@ -206,9 +207,11 @@ a {
 
 .panel-join {
   position: relative;
-  padding: 43px 125px 0 135px;
+  padding: 43px 8% 0 8%;
   margin-bottom: 30px;
   max-width: 100%;
+  background: url("../images/join.png") no-repeat left top;
+  background-size: 100% 100%;
 }
 
 .panel-join-background {
@@ -226,11 +229,14 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid #fff;
   padding: 10px 15px;
   line-height: 1;
   font-size: 26px;
   margin-bottom: 30px;
+  height: 68px;
+  border: 3px solid #FFFFFF;
+  border-radius: 12px;
+  box-sizing: border-box;
 }
 
 .panel-join-values {
@@ -245,40 +251,29 @@ a {
   width: 30%;
   position: relative;
   display: block;
-  color: #ffffff;
   text-decoration: none;
-  padding: 10px 15px;
   margin-bottom: 30px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
-  background-color: #fff;
+  background: url("../images/assetbg.png") no-repeat center;
+  background-size: cover;
   overflow: visible;
-  font-size: 14px;
-  line-height: 1;
+  height: 56px;
+  line-height: 56px;
   cursor: pointer;
+  font-size: 20px;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #201C15;
+  border-radius:12px;
 }
-.panel-join-values a::before {
-  position: absolute;
-  display: block;
-  top: 2px;
-  left: 3px;
-  width: calc(100% - 6px);
-  height: calc(100% - 4px);
-  content: "";
-  clip-path: polygon(5% 0, 95% 0, 100% 50%, 95% 100%, 5% 100%, 0% 50%);
-  background-color: #020413;
-  z-index: -1;
-  transition: all 0.5s;
-}
+
 .panel-join-values a:hover::before,
 .panel-join-values a.active::before {
 }
 
 .panel-join-controls {
   display: flex;
-  justify-content: space-between;
+  justify-content:flex-end;
   align-items: center;
 }
 .panel-join-controls .button {
@@ -323,17 +318,36 @@ a {
   bottom: 3px;
 }
 .container h2.join {
-  top: 45px;
   position: relative;
+  background: url("../images/titlebg.png") no-repeat left bottom;
+  background-size: auto 80%;
+  margin-bottom: 14px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: left;
+  padding-left: 21%;
+  padding-bottom: 10px;
 }
 .panel-info {
-  background: url("../images/join.png") no-repeat;
-  -webkit-background-size: 100% 100%;
-  background-size: 100% 100%;
-  padding: 30px 60px 45px 75px;
   margin: 0 auto 100px;
   text-align: left;
   max-width: 100%;
+}
+.panel-info h3{
+  background: url("../images/titlebg.png") no-repeat left bottom;
+  padding-bottom: 10px;
+  padding-left: 20%;
+  background-size: auto 80%;
+  margin-bottom:14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  font-size: 36px;
+}
+.panel-info .pabel-list{
+  background: url("../images/join.png") no-repeat;
+  background-size: 100% 100%;
+  padding: 40px;
 }
 .panel-info:last-child {
   margin-bottom: 0;
@@ -344,14 +358,23 @@ a {
   justify-content: space-between;
   align-items: center;
   font-size: 14px;
-  margin-bottom: 30px;
+  line-height: 50px;
+  border-bottom:2px solid rgba(255, 244, 209, .2)
+}
+.panel-info-item-btn{
+  margin-top:30px;
+  text-align: right;
 }
 .panel-info-item a {
   text-transform: none;
-  color: #fff;
+}
+.panel-info-item a.btn{
+  height: 30px;
+  line-height: 30px;
+  padding: 0 20px;
 }
 .panel-info-item:last-child {
-  margin-bottom: 0;
+  border-bottom:0;
 }
 .btn {
   background: url(../images/button-primary.png);

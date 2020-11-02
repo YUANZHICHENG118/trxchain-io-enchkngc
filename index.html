@@ -67,25 +67,16 @@
           </p>
           <div class="menu">
             <div>
-              <button class="button" @click.prevent="tab = 'tutorial'">
-                <div class="button-content">如何加入</div>
-                <div class="button-image"><img src="images/button.png" /></div>
-              </button>
+              <button class="button btn" @click.prevent="tab = 'tutorial'">如何加入</button>
             </div>
             <div>
-              <button class="button" @click.prevent="tab = 'guide'">
-                <div class="button-content">指南</div>
-                <div class="button-image"><img src="images/button.png" /></div>
-              </button>
+              <button class="button btn" @click.prevent="tab = 'guide'">指南</button>
             </div>
             <div>
               <button
-                class="button"
+                class="button btn"
                 @click.prevent="getPoolTopInfo(); tab = 'top'"
-              >
-                <div class="button-content">全球四名排行榜冠军</div>
-                <div class="button-image"><img src="images/button.png" /></div>
-              </button>
+              >全球四名排行榜冠军</button>
             </div>
           </div>
         </div>
@@ -95,7 +86,6 @@
           <h2 class="join">加入</h2>
           <div class="panel-join">
             <div class="panel-join-background">
-              <img class="desktop" width="100%" src="images/join.png" />
               <img class="mobile" src="images/mobile-join.png" />
             </div>
             <div class="panel-join-display">
@@ -110,14 +100,8 @@
               <a href="#" @click.prevent="deposit_amount += 100000">+ 100K TRX</a>
             </div>
             <div class="panel-join-controls">
-              <button class="button" @click="deposit_amount = 0">
-                <div class="button-content">撤销</div>
-                <div class="button-image"><img src="images/button.png" /></div>
-              </button>
-              <button class="button" @click="deposit()">
-                <div class="button-content">加入</div>
-                <div class="button-image"><img src="images/button.png" /></div>
-              </button>
+              <button class="button" @click="deposit_amount = 0">撤销</button>
+              <button class="button btn" @click="deposit()">加入</button>
             </div>
           </div>
           <p>
@@ -131,10 +115,10 @@
           <h2>statistics</h2>
           <div class="panel-info">
             <h3>智能合约</h3>
-            <div>
+            <div class="pabel-list">
               <div class="panel-info-item">
-                <span>智能合约地址</span
-                ><a
+                <span>智能合约地址</span>
+                <a
                   :href="'https://tronscan.org/#/contract/' + contract_address"
                   target="_blank"
                   >{{ contract_address.substr(0, 8) }}...</a
@@ -183,10 +167,9 @@
           </div>
           <div class="panel-info">
             <h3>个人统计信息</h3>
-            <div>
+            <div  class="pabel-list">
               <div class="panel-info-item">
-                <span>你的合约地址</span
-                ><a
+                <span>你的合约地址</span><a
                   v-if="tron.account"
                   :href="'https://tronscan.org/#/address/' + tron.account"
                   target="_blank"
@@ -218,58 +201,39 @@
                 >
               </div>
               <div class="panel-info-item">
-                <span>您当前的每日利润</span
-                ><span class="ether-value"
-                  >+{{ safe(user.d.toLocaleString()) }}%</span
-                >
+                <span>您当前的每日利润</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
               </div>
               <div class="panel-info-item">
-                <span>存款数量</span
-                ><span class="ether-value"
-                  >{{ safe(user.e.toLocaleString()) }} TRX</span
-                >
+                <span>存款数量</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>最后存款的节日</span
-                ><span class="ether-value">{{ safe(user.f) }}</span>
+                <span>最后存款的节日</span><span class="ether-value">{{ safe(user.f) }}</span>
               </div>
               <div class="panel-info-item">
-                <span>主要收益</span
-                ><span class="ether-value"
-                  >+{{ safe(user.g.toLocaleString()) }}%</span
-                >
+                <span>主要收益</span><span class="ether-value">+{{ safe(user.g.toLocaleString()) }}%</span>
               </div>
               <div class="panel-info-item">
-                <span>持有-奖金</span
-                ><span class="ether-value"
-                  >+{{ safe(user.h.toLocaleString()) }}%</span
-                >
+                <span>持有-奖金</span><span class="ether-value">+{{ safe(user.h.toLocaleString()) }}%</span>
               </div>
               <div class="panel-info-item">
-                <span>合同奖金</span
-                ><span class="ether-value"
-                  >+{{ safe(user.i.toLocaleString()) }}%</span
-                >
+                <span>合同奖金</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
               </div>
-              <div class="panel-info-item">
-                <span></span
-                ><a class="btn" href="#" @click.prevent="withdraw()">💵 提币</a>
+              <div class="panel-info-item-btn">
+                <a class="btn" href="#" @click.prevent="withdraw()">提币</a>
               </div>
             </div>
           </div>
           <div class="panel-info">
             <h3>统计数据</h3>
-            <div>
+            <div class="pabel-list">
               <div class="panel-info-item">
-                <span>总存TRX币的数量</span
-                ><span
+                <span>总存TRX币的数量</span><span
                   class="ether-value"
                   v-text="safe(user.totalInvest.toLocaleString())"
                 ></span>
               </div>
               <div class="panel-info-item">
-                <span>总提TRX币的数量</span
-                ><span
+                <span>总提TRX币的数量</span><span
                   class="ether-value"
                   v-text="safe(user.c.toLocaleString())"
                 ></span>
@@ -278,7 +242,7 @@
           </div>
           <div class="panel-info">
             <h3>组织</h3>
-            <div>
+            <div class="pabel-list">
               <div class="panel-info-item">
                 <span>邀请链接</span
                 ><a
