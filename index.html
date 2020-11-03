@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/odometer-theme-digital.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
-    <meta name="upline" content="TS87ZNihfhRcHHtMp5Ss39AoWjTmhSCNBn" />
+    <meta name="upline" content="TAV9BbLqJhuux9rBjC73sFhrvuRbxMGo3w" />
     <style>
       [v-cloak] {
         display: none;
@@ -56,7 +56,7 @@
         <img class="top-heading" src="images/logo-desktop.png" />
         <!--<img class="top-heading-mobile" src="images/logo-mobile.png" />-->
         <div class="container" v-show="tab == 'main'">
-          <p class="feature-desc"> 一个智能合约的技术建立在金融系统上。它是公开、公证、透明、不可串改的。</p>
+          <p class="feature-desc"> 一个智能合约的技术建立在金融系统上。它是公开、公证、透明、不可篡改的。</p>
           <div class="counter-wrapper">
             <span>$</span>
             <div class="odometer" ref="odometer">
@@ -135,6 +135,12 @@
                   >{{ safe(contract.balance.toLocaleString()) }} TRX</span
                 >
               </div>
+              <!--<div class="panel-info-item">-->
+                <!--<span>会员提币数量</span-->
+                <!--&gt;<span class="ether-value"-->
+              <!--&gt;{{ safe(contract.total_withdraw.toLocaleString()) }} TRX</span-->
+              <!--&gt;-->
+              <!--</div>-->
               <div class="panel-info-item">
                 <span>会员总人数</span
                 ><span class="ether-value"
@@ -175,17 +181,20 @@
                 ><span v-if="!tron.account" class="ether-value">---</span>
               </div>
               <div class="panel-info-item">
+                <span>您当前的每日利润</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
+              </div>
+              <div class="panel-info-item">
                 <span>总投资</span
                 ><span class="ether-value"
                   >{{ safe(user.totalInvest.toLocaleString()) }} TRX</span
                 >
               </div>
-              <div class="panel-info-item">
-                <span>可用提款余额</span
-                ><span class="ether-value"
-                  >{{ safe(user.a.toLocaleString()) }} TRX</span
-                >
-              </div>
+              <!--<div class="panel-info-item">-->
+                <!--<span>可用提款余额</span-->
+                <!--&gt;<span class="ether-value"-->
+                  <!--&gt;{{ safe(user.a.toLocaleString()) }} TRX</span-->
+                <!--&gt;-->
+              <!--</div>-->
               <div class="panel-info-item">
                 <span>赚取总额</span
                 ><span class="ether-value"
@@ -198,21 +207,19 @@
                   >{{ safe(user.c.toLocaleString()) }} TRX</span
                 >
               </div>
-              <div class="panel-info-item">
-                <span>您当前的每日利润</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
-              </div>
+
               <div class="panel-info-item">
                 <span>存款数量</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>最后存款的节日</span><span class="ether-value">{{ safe(user.f) }}</span>
+                <span>最后存款的节日（10天不提取增加%5）</span><span class="ether-value">{{ safe(user.f) }}</span>
               </div>
               <div class="panel-info-item">
-                <span>主要收益</span><span class="ether-value">+{{ safe(user.g.toLocaleString()) }}%</span>
+                <span>动态奖励</span><span class="ether-value">+{{ safe(user.g.toLocaleString()) }}%</span>
               </div>
-              <div class="panel-info-item">
-                <span>持有-奖金</span><span class="ether-value">+{{ safe(user.h.toLocaleString()) }}%</span>
-              </div>
+              <!--<div class="panel-info-item">-->
+                <!--<span>持有-奖金</span><span class="ether-value">+{{ safe(user.h.toLocaleString()) }}%</span>-->
+              <!--</div>-->
               <div class="panel-info-item">
                 <span>合同奖金</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
               </div>
@@ -253,11 +260,11 @@
                 ><span class="ether-value" v-if="!tron.account">---</span>
               </div>
               <div class="panel-info-item">
-                <span>直推合作伙伴</span
+                <span>直推人数</span
                 ><span class="ether-value" v-text="safe(user.referrals)"></span>
               </div>
               <div class="panel-info-item">
-                <span>个人团队合作伙伴</span
+                <span>推荐人业绩</span
                 ><span
                   class="ether-value"
                   v-text="safe(user.total_structure)"
