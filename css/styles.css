@@ -374,8 +374,8 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 14px;
-    line-height: 50px;
+    font-size: 18px;
+    line-height: 60px;
     border-bottom: 2px solid rgba(255, 244, 209, .2)
 }
 
@@ -664,26 +664,36 @@ a {
     .menu > * {
         margin-right: 0;
     }
-    .panel-info-item{
+
+    .panel-info-item {
         line-height: 60px;
         font-size: 19px;
     }
-    .footer-content a{
+
+    .footer-content a {
         line-height: 70px;
         font-size: 20px;
         padding: 0 5%;
     }
-    .panel-join-controls .button{
+
+    .panel-join-controls .button {
         height: 60px;
         font-size: 20px;
     }
-    .button{
+
+    .button {
         width: 60%;
         height: 70px;
         font-size: 20px;
     }
-    .trx-desc{
+
+    .trx-desc {
         font-size: 16px;
+    }
+
+    .panel-info-item {
+        font-size: 18px;
+        line-height: 60px;
     }
 }
 
@@ -952,27 +962,6 @@ a {
     .feature-desc {
         font-size: 12px;
     }
-
-    /*.panel-info {
-        margin-bottom: 40px;
-        padding: 30px; }
-
-      .panel-info-item {
-        flex-wrap: wrap;
-        margin-bottom: 10px; }
-        .panel-info-item > *:first-child {
-          width: 100%;
-          margin-bottom: 5px;
-          text-align: center; }
-        .panel-info-item > *, .panel-info-item a {
-          margin: auto;
-          margin-right: auto; }
-
-      .panel-join-controls .button:first-child {
-        margin-right: 10px; }
-
-      .panel-join-values {
-        margin-bottom: 15px; }*/
 }
 
 @media (max-width: 360px) {
