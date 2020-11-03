@@ -53,16 +53,16 @@
       <section class="section-top">
         <!--<img class="top-logo" src="images/logo.png" width="96" />-->
         <img class="top-heading" src="images/logo-desktop.png" />
-        <img class="top-heading-mobile" src="images/logo-mobile.png" />
+        <!--<img class="top-heading-mobile" src="images/logo-mobile.png" />-->
         <div class="container" v-show="tab == 'main'">
-          <p> 一个智能合约的技术建立在金融系统上。它是公开、公证、透明、不可串改的。</p>
+          <p class="feature-desc"> 一个智能合约的技术建立在金融系统上。它是公开、公证、透明、不可串改的。</p>
           <div class="counter-wrapper">
             <span>$</span>
             <div class="odometer" ref="odometer">
               {{ contract.balance * rates.trx }}
             </div>
           </div>
-          <p>
+          <p class="trx-desc">
             世界上第一个以去中心化分布式的世界上第一个以去中心化分布式智能合约的社区支助基金会
           </p>
           <div class="menu">
