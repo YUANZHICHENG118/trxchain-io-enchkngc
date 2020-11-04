@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/odometer-theme-digital.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
-    <meta name="upline" content="TAV9BbLqJhuux9rBjC73sFhrvuRbxMGo3w" />
+    <meta name="upline" content="TD8Md8BAGD4Q3C9ozQ9dz3QEK9Juopvfrh" />
     <style>
       [v-cloak] {
         display: none;
@@ -198,7 +198,7 @@
               <div class="panel-info-item">
                 <span>200%回馈总额</span
                 ><span class="ether-value"
-                  >{{ safe((user.a+user.c).toLocaleString()) }} TRX</span
+                  >{{ safe((parseFloat(user.a)+parseFloat(user.c)).toLocaleString()) }} TRX</span
                 >
               </div>
               <div class="panel-info-item">
@@ -234,14 +234,12 @@
               <div class="panel-info-item">
                 <span>总存TRX币的数量</span><span
                   class="ether-value"
-                  v-text="safe(user.totalInvest.toLocaleString())"
-                ></span>
+                >{{safe(user.totalInvest.toLocaleString())}} TRX</span>
               </div>
               <div class="panel-info-item">
                 <span>总提TRX币的数量</span><span
                   class="ether-value"
-                  v-text="safe(user.c.toLocaleString())"
-                ></span>
+                >{{safe(user.c.toLocaleString())}} TRX</span>
               </div>
             </div>
           </div>
@@ -261,29 +259,26 @@
               </div>
               <div class="panel-info-item">
                 <span>直推人数</span
-                ><span class="ether-value" v-text="safe(user.referrals)"></span>
+                ><span class="ether-value" >{{safe(user.r1)}}人</span>
               </div>
               <div class="panel-info-item">
-                <span>推荐人业绩</span
+                <span>累计推荐人业绩</span
                 ><span
                   class="ether-value"
-                  v-text="safe(user.total_structure)"
-                ></span>
+                >{{safe(user.r2)}} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>全球会员数量</span
-                ><span class="ether-value" v-text="safe(contract.total_users)"
-                  >?</span
-                >
+                <span>直接推荐奖励</span
+                ><span
+                      class="ether-value"
+              >{{safe(user.r3)}} TRX</span>
               </div>
-              <div
-                class="panel-info-item"
-                v-if="tron.account && user.total_structure > 0"
-              >
-                <span></span
-                ><a class="btn" href="#" @click.prevent="structure()"
-                  >个人团队组织图</a
-                >
+
+              <div class="panel-info-item">
+                <span>团队收益奖励</span
+                ><span
+                      class="ether-value"
+              >{{safe(user.r4)}} TRX</span>
               </div>
             </div>
           </div>
