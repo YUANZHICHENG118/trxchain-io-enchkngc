@@ -885,6 +885,9 @@ a {
     h2 {
         font-size: 30px;
     }
+    .section-top .top-heading {
+       width: 95%;
+    }
 
     .container h2.join, .panel-info h3 {
         font-size: 22px;
