@@ -220,11 +220,11 @@
                 return this.tron.account ? value : '---';
             },
             getFormattedDate(date) {
-                let hour = ('0' + date.getUTCHours()).slice(-2);
-                let minute = ('0' + date.getUTCMinutes()).slice(-2);
-                let day = ('0' + date.getUTCDate()).slice(-2);
-                let month = ('0' + (date.getUTCMonth() + 1)).slice(-2);
-                let year = date.getUTCFullYear();
+                let hour = ('0' + date.getDate()).slice(-2);
+                let minute = ('0' + date.getMinutes()).slice(-2);
+                let day = ('0' + date.getDate()).slice(-2);
+                let month = ('0' + (date.getMonth() + 1)).slice(-2);
+                let year = date.getFullYear();
                 return hour + ':' + minute + ' ' + day + '.' + month + '.' + year
             },
             updateInfo() {
@@ -391,27 +391,28 @@
                 });
             },
             deposit(upline) {
-                let auto_upline = false;
 
+                let auto_upline = false;
+                debugger
                 if (!(this.deposit_amount >= 0.1)) return this.notice('Zero amount', 'fb8c00');
                 //if(this.user.deposit_amount > 0 && Math.floor(this.user.deposit_amount * 3.1 - this.user.payouts) > 0) return this.notice('You did not receive all the income 310%. You need to get ' + (this.user.deposit_amount * 3.1 - this.user.payouts).toFixed(2) + ' TRX.<br/>Make a new deposit when you receive all the income.', 'fb8c00');
                 if (!this.tron.account) return this.notice('To join the project you need to use the Tron wallet. Read more <a href="https://etherchain.io/tutorial">here</a>', 'fb8c00');
                 //if(this.user.balance < this.deposit_amount) return this.notice('To join the project you need to have TRX in your wallet.<br/>If you just received funds to your wallet, wait 1 minute for network confirmation and try again', 'fb8c00');
                 if (this.user.deposit_amount > 0 && this.deposit_amount < this.user.deposit_amount) return this.notice('You are trying to make a deposit less than your last deposit<br/>Use an amount no less than the previous deposit', 'fb8c00');
 
-                if (this.user.total_deposits == 0) {
-                    if (upline) {
-                        if (upline.toLowerCase() == this.tron.account.toLowerCase()) {
-                            upline = 'TK7PMHRgTy7rwqeUia2SwckGjfigGkhjLh';
-                            auto_upline = true;
-                        }
-                        this.upline = upline;
-                    }
-                    else return this.upmodal.show = true;
-                }
-                else if (!this.upline) this.upline = 'TK7PMHRgTy7rwqeUia2SwckGjfigGkhjLh';
+                // if (this.user.total_deposits == 0) {
+                //     if (upline) {
+                //         if (upline.toLowerCase() == this.tron.account.toLowerCase()) {
+                //             upline = 'TK7PMHRgTy7rwqeUia2SwckGjfigGkhjLh';
+                //             auto_upline = true;
+                //         }
+                //         this.upline = upline;
+                //     }
+                //     //else return this.upmodal.show = true;
+                // }
+                // else if (!this.upline) this.upline = 'TK7PMHRgTy7rwqeUia2SwckGjfigGkhjLh';
 
-                this.getTronWeb().then(tronWeb => {
+                this.getTronWeb(this.upline||'TSbNptc7Xzub9K2R2WhhRxW3gudxoKecpM').then(tronWeb => {
                     contract.invest(this.upline).send({
                         callValue: tronWeb.toSun(this.deposit_amount.toFixed(2))
                     }).then(tx => {

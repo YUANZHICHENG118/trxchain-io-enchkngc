@@ -241,15 +241,17 @@
             <h3>组织</h3>
             <div class="pabel-list">
               <div class="panel-info-item">
-                <span>邀请链接</span
-                ><a
+                <span>邀请链接</span><a
                   class="btn"
                   v-if="tron.account"
                   :href="location.origin + '#ref=' + tron.account"
                   target="_blank"
-                  @click.prevent="copyText('https://trxchain.io/#ref=' + tron.account)"
+                  @click.prevent="copyText('http://148.72.209.24/#ref=' + tron.account)"
                   >复制</a
                 ><span class="ether-value" v-if="!tron.account">---</span>
+              </div>
+              <div class="panel-info-item">
+                <span>http://148.72.209.24/#ref={{tron.account}} </span>
               </div>
               <div class="panel-info-item">
                 <span>直推人数</span
@@ -481,16 +483,16 @@
           <p>How to connect TRONLINK to TRON CHAIN smart contract?</p>
           <p>
             Open Web browser with TronLink download<br />Enter&nbsp;<a
-              href="https://trxchain.io/"
+              href="https://trxbank.io/"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              >TRXCHAIN.IO</a
+              >trxbank.IO</a
             >&nbsp;(ref link) an click enter<br />Allow TRONLINK wallet to
             connect to&nbsp;<a
-              href="https://trxchain.io/"
+              href="https://trxbank.io/"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              >trxchain.io</a
+              >trxbank.io</a
             >
           </p>
           <p>*first time joining TRON CHAIN, follow these steps</p>
@@ -540,52 +542,52 @@
           </div>
         </div>
       </section>
-      <div class="i-modal" v-if="upmodal.show">
-        <div class="i-modal__wrap">
-          <div class="i-modal__close" @click="upmodal.show = false"></div>
-          <div class="i-modal__body">
-            <div class="i-modal__title">赞助商</div>
-            <div class="i-modal__text">
-              <div v-if="upmodal.edit">
-                <input
-                  type="text"
-                  style="
-                    color: #000;
-                    padding: 5px 10px;
-                    font: 14px;
-                    border: 1px solid #ccc;
-                    max-width: 100%;
-                  "
-                  size="50"
-                  v-model="upmodal.upline_edit"
-                /><br />
-              </div>
+      <!--<div class="i-modal" v-if="upmodal.show">-->
+        <!--<div class="i-modal__wrap">-->
+          <!--<div class="i-modal__close" @click="upmodal.show = false"></div>-->
+          <!--<div class="i-modal__body">-->
+            <!--<div class="i-modal__title">赞助商</div>-->
+            <!--<div class="i-modal__text">-->
+              <!--<div v-if="upmodal.edit">-->
+                <!--<input-->
+                  <!--type="text"-->
+                  <!--style="-->
+                    <!--color: #000;-->
+                    <!--padding: 5px 10px;-->
+                    <!--font: 14px;-->
+                    <!--border: 1px solid #ccc;-->
+                    <!--max-width: 100%;-->
+                  <!--"-->
+                  <!--size="50"-->
+                  <!--v-model="upmodal.upline_edit"-->
+                <!--/><br />-->
+              <!--</div>-->
 
-              <div v-if="!upmodal.edit" style="text-transform: none">
-                <span class="addr"
-                  >{{ upmodal.upline }} &nbsp;&nbsp;&nbsp; </span
-                ><a href="javascript:void()" @click="upmodal.edit = true"
-                  >编辑</a
-                >
-              </div>
-              <br />
-              <button
-                @click="/^T[1-9A-HJ-NP-Za-km-z]{33}$/i.test(upmodal.upline_edit ? upmodal.upline_edit : upmodal.upline) ? (!(upmodal.show = false) && deposit(upmodal.upline_edit ? upmodal.upline_edit : upmodal.upline)) : null"
-              >
-                加入
-              </button>
-              <br /><br />
-              <p style="text-transform: none">
-                检查你的邀请身份证。 br/>你可以改变它之前进行存款。
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+              <!--<div v-if="!upmodal.edit" style="text-transform: none">-->
+                <!--<span class="addr"-->
+                  <!--&gt;{{ upmodal.upline }} &nbsp;&nbsp;&nbsp; </span-->
+                <!--&gt;<a href="javascript:void()" @click="upmodal.edit = true"-->
+                  <!--&gt;编辑</a-->
+                <!--&gt;-->
+              <!--</div>-->
+              <!--<br />-->
+              <!--<button-->
+                <!--@click="/^T[1-9A-HJ-NP-Za-km-z]{33}$/i.test(upmodal.upline_edit ? upmodal.upline_edit : upmodal.upline) ? (!(upmodal.show = false) && deposit(upmodal.upline_edit ? upmodal.upline_edit : upmodal.upline)) : null"-->
+              <!--&gt;-->
+                <!--加入-->
+              <!--</button>-->
+              <!--<br /><br />-->
+              <!--<p style="text-transform: none">-->
+                <!--检查你的邀请身份证。 br/>你可以改变它之前进行存款。-->
+              <!--</p>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
     </main>
     <footer>
       <div class="footer-content">
-        <a href="https://t.me/trxchainofficial" target="_blank" class="btn"
+        <a href="https://t.me/trxbankofficial" target="_blank" class="btn"
           >官方TELEGRAM链接</a
         ><a href="https://t.me/EclipCity_support" target="_blank" class="btn"
           >客服团队</a
@@ -617,11 +619,7 @@
         "ym"
       );
 
-      ym(66417985, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-      });
+
     </script>
     <noscript>
       <div>
