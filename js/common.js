@@ -271,7 +271,6 @@
                         this.user.r3 = tronWeb.fromSun(res["directReferralReward"]);
                         this.user.r4 = tronWeb.fromSun(res["teamRevenueReward"]);
                         this.user.r5 = res["teamNumber"];
-                        debugger
                         this.upline=res["referrer"];
 
 
