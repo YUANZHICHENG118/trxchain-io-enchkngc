@@ -105,6 +105,7 @@
                 total_payouts: 0,
                 total_structure: 0,
                 totalInvest: 0,// 总投资
+                dc:0,
                 a: 0,
                 b: 0,
                 c: 0,
@@ -255,7 +256,7 @@
                     });
 
                     // 用户总投资
-                    contract.totalInvested().call().then(res => {
+                    contract.getUserTotalDeposits(this.tron.account).call().then(res => {
                         this.user.totalInvest = tronWeb.fromSun(res);
                     });
                     // 可提取
@@ -271,6 +272,7 @@
                         this.user.r3 = tronWeb.fromSun(res["directReferralReward"]);
                         this.user.r4 = tronWeb.fromSun(res["teamRevenueReward"]);
                         this.user.r5 = res["teamNumber"];
+                        debugger
                         this.upline=res["referrer"];
 
 
@@ -295,6 +297,13 @@
                         this.user.i = contractBalanceRate;
 
                     });
+
+                    // 动态奖励
+                    contract.getUserReferralBonus(this.tron.account).call().then(res => {
+                        this.user.dc = tronWeb.fromSun(res);
+
+                    });
+
                     // 用户奖金
                     contract.getUserPercentRate(this.tron.account).call().then(res => {
 

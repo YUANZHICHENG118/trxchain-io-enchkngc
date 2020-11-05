@@ -183,12 +183,17 @@
                   >{{ safe(user.totalInvest.toLocaleString()) }} TRX</span
                 >
               </div>
-              <!--<div class="panel-info-item">-->
-                <!--<span>可用提款余额</span-->
-                <!--&gt;<span class="ether-value"-->
-                  <!--&gt;{{ safe(user.a.toLocaleString()) }} TRX</span-->
-                <!--&gt;-->
-              <!--</div>-->
+              <div class="panel-info-item">
+                <span>存款数量</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }} TRX</span>
+              </div>
+
+              <div class="panel-info-item">
+                <span>最后存款的节日（10天不提取增加%5）</span><span class="ether-value">{{ safe(user.f) }}</span>
+              </div>
+              <div class="panel-info-item">
+                <span>合约奖金</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
+              </div>
+
               <div class="panel-info-item">
                 <span>200%回馈总额</span
                 ><span class="ether-value"
@@ -196,27 +201,38 @@
                 >
               </div>
               <div class="panel-info-item">
-                <span>总取款</span
+              <span>直接推荐奖励</span
+              ><span
+              class="ether-value"
+              >{{safe(user.r3)}} TRX</span>
+              </div>
+              <div class="panel-info-item">
+                <span>动态奖励</span><span class="ether-value">{{ safe(user.dc.toLocaleString()) }}</span>
+              </div>
+              <div class="panel-info-item">
+              <span>团队收益奖励</span
+              ><span
+              class="ether-value"
+              >{{safe(user.r4)}} TRX</span>
+              </div>
+              <div class="panel-info-item">
+                <span>总提币数量</span
                 ><span class="ether-value"
                   >{{ safe(user.c.toLocaleString()) }} TRX</span
                 >
               </div>
 
               <div class="panel-info-item">
-                <span>存款数量</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }} TRX</span>
+              <span>未提币数量（10天不提取收益增加5%）</span
+              ><span class="ether-value"
+              >{{ safe(user.a.toLocaleString()) }} TRX</span
+              >
               </div>
-              <div class="panel-info-item">
-                <span>最后存款的节日（10天不提取增加%5）</span><span class="ether-value">{{ safe(user.f) }}</span>
-              </div>
-              <div class="panel-info-item">
-                <span>动态奖励</span><span class="ether-value">+{{ safe(user.g.toLocaleString()) }}%</span>
-              </div>
+
               <!--<div class="panel-info-item">-->
                 <!--<span>持有-奖金</span><span class="ether-value">+{{ safe(user.h.toLocaleString()) }}%</span>-->
               <!--</div>-->
-              <div class="panel-info-item">
-                <span>合同奖金</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
-              </div>
+
               <div class="panel-info-item-btn">
                 <a class="btn" href="#" @click.prevent="withdraw()">提币</a>
               </div>
@@ -267,19 +283,8 @@
                   class="ether-value"
                 >{{safe(user.r2)}} TRX</span>
               </div>
-              <!--<div class="panel-info-item">-->
-                <!--<span>直接推荐奖励</span-->
-                <!--&gt;<span-->
-                      <!--class="ether-value"-->
-              <!--&gt;{{safe(user.r3)}} TRX</span>-->
-              <!--</div>-->
 
-              <!--<div class="panel-info-item">-->
-                <!--<span>团队收益奖励</span-->
-                <!--&gt;<span-->
-                      <!--class="ether-value"-->
-              <!--&gt;{{safe(user.r4)}} TRX</span>-->
-              <!--</div>-->
+
             </div>
           </div>
         </div>
