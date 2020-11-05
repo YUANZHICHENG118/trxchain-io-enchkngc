@@ -1,16 +1,10 @@
 {
     "header": [
-        " *   ",
-        " *   文件描述：本文件为网页资源信息",
-        " *   success字段为下载保存成功的资源;failures字段则为下载保存失败的资源URL",
-        " *   success字段为标准树结构，每一层资源父子关系、URL和保存路径清晰明了",
-        " *   本文件仅为记录检测到的网页资源以便于调试，非专业人员可将本文件删除",
-        " *   详细介绍请参考: https://bazhan.me/faq",
-        " *   "
+     
     ],
     "success": [
         {
-            "url": "https://trxchain.io/?lang=zh",
+            "url": "https://tronbank.cc/?lang=zh",
             "path": "index.html",
             "children": [
                 {
@@ -30,27 +24,27 @@
                     "path": "images/ru.svg"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/images/logo.png?2",
+                    "url": "https://tronbank.cc/modules/site/main/assets/images/logo.png?2",
                     "path": "images/logo.png"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/images/logo-desktop.png",
+                    "url": "https://tronbank.cc/modules/site/main/assets/images/logo-desktop.png",
                     "path": "images/logo-desktop.png"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/images/logo-mobile.png",
+                    "url": "https://tronbank.cc/modules/site/main/assets/images/logo-mobile.png",
                     "path": "images/logo-mobile.png"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/images/button.png",
+                    "url": "https://tronbank.cc/modules/site/main/assets/images/button.png",
                     "path": "images/button.png"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/images/join.svg",
+                    "url": "https://tronbank.cc/modules/site/main/assets/images/join.svg",
                     "path": "images/join.svg"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/images/mobile-join.png",
+                    "url": "https://tronbank.cc/modules/site/main/assets/images/mobile-join.png",
                     "path": "images/mobile-join.png"
                 },
                 {
@@ -62,42 +56,42 @@
                     "path": "js/jquery.min.js"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/scripts/odometer.min.js",
+                    "url": "https://tronbank.cc/modules/site/main/assets/scripts/odometer.min.js",
                     "path": "js/odometer.min.js"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/scripts/common.js?1603379446",
+                    "url": "https://tronbank.cc/modules/site/main/assets/scripts/common.js?1603379446",
                     "path": "js/common.js"
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/styles/odometer-theme-digital.css",
+                    "url": "https://tronbank.cc/modules/site/main/assets/styles/odometer-theme-digital.css",
                     "path": "css/odometer-theme-digital.css",
                     "children": []
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/styles/styles.css?1602611159",
+                    "url": "https://tronbank.cc/modules/site/main/assets/styles/styles.css?1602611159",
                     "path": "css/styles.css",
                     "children": [
                         {
-                            "url": "https://trxchain.io/modules/site/main/assets/fonts/NebulosaBlack.otf",
+                            "url": "https://tronbank.cc/modules/site/main/assets/fonts/NebulosaBlack.otf",
                             "path": "fonts/NebulosaBlack.otf"
                         },
                         {
-                            "url": "https://trxchain.io/modules/site/main/assets/images/bg.jpg",
+                            "url": "https://tronbank.cc/modules/site/main/assets/images/bg.jpg",
                             "path": "images/bg.jpg"
                         },
                         {
-                            "url": "https://trxchain.io/modules/site/main/assets/images/bg-info.png",
+                            "url": "https://tronbank.cc/modules/site/main/assets/images/bg-info.png",
                             "path": "images/bg-info.png"
                         },
                         {
-                            "url": "https://trxchain.io/modules/site/main/assets/images/button-primary.png",
+                            "url": "https://tronbank.cc/modules/site/main/assets/images/button-primary.png",
                             "path": "images/button-primary.png"
                         }
                     ]
                 },
                 {
-                    "url": "https://trxchain.io/modules/site/main/assets/images/favicon.png",
+                    "url": "https://tronbank.cc/modules/site/main/assets/images/favicon.png",
                     "path": "images/favicon.png"
                 }
             ]
