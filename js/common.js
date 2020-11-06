@@ -267,6 +267,7 @@
 
                     // 推荐数据
                     contract.users(this.tron.account).call().then(res => {
+                        debugger
 
                         this.user.r1 = res["referCount"];
                         this.user.r2 = tronWeb.fromSun(res["referAmout"]);
