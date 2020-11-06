@@ -81,6 +81,7 @@
             tab: 'main',
             contract_address: 'TT6e1iC29pG1eeEfnDfQ5hiJXQHxbdj3qD',
             upline: '',
+            ref:'',
             contract: {
                 balance: 0,
                 total_users: 0,
@@ -272,7 +273,7 @@
                         this.user.r3 = tronWeb.fromSun(res["directReferralReward"]);
                         this.user.r4 = tronWeb.fromSun(res["teamRevenueReward"]);
                         this.user.r5 = res["teamNumber"];
-                        this.upline=tronWeb.address.fromHex(res["referrer"]);
+                        this.ref=tronWeb.address.fromHex(res["referrer"]);
 
 
                     });
@@ -402,7 +403,6 @@
             deposit(upline) {
 
                 let auto_upline = false;
-                debugger
                 if (!(this.deposit_amount >= 0.1)) return this.notice('Zero amount', 'fb8c00');
                 //if(this.user.deposit_amount > 0 && Math.floor(this.user.deposit_amount * 3.1 - this.user.payouts) > 0) return this.notice('You did not receive all the income 310%. You need to get ' + (this.user.deposit_amount * 3.1 - this.user.payouts).toFixed(2) + ' TRX.<br/>Make a new deposit when you receive all the income.', 'fb8c00');
                 if (!this.tron.account) return this.notice('To join the project you need to use the Tron wallet. Read more <a href="https://etherchain.io/tutorial">here</a>', 'fb8c00');

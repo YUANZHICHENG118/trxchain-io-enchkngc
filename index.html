@@ -154,10 +154,10 @@
                   v-if="tron.account && (user.upline || upline)"
                   :href="'https://tronscan.org/#/address/' + (user.upline || upline)"
                   target="_blank"
-                  >{{ (user.upline || upline).substr(0, 8) }}...</a
+                  >{{ (user.ref || ref).substr(0, 8) }}...</a
                 ><span
                   class="ether-value"
-                  v-if="!(tron.account && (user.upline || upline))"
+                  v-if="!(tron.account && (user.upline || ref))"
                   >---</span
                 >
               </div>
