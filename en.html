@@ -7,7 +7,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>TRXBank去中心化银行</title>
+    <title>TRXBank decentralized banking</title>
     <link rel="stylesheet" href="css/odometer-theme-digital.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
@@ -25,20 +25,20 @@
         <div class="header__wrap">
           <div class="header__item" v-if="tron.account">
             <img src="./images/logo.png" width="45" alt="">
-            <div class="header__label">您的Tron钱包</div>
+            <div class="header__label">Your Tron Wallet</div>
             <div class="header__value"><span v-text="tron.account"></span></div>
           </div>
           <div class="header__grow"></div>
           <div class="header__item">
-            <div class="header__label">系统语言</div>
+            <div class="header__label">language</div>
             <div class="header__value lang">
-              <div><img src="images/zh.svg" /> 中国</div>
+              <div><img src="images/en.svg" /> English</div>
               <ul>
                 <li>
                   <a href="en.html"><img src="images/en.svg" /> English</a>
                 </li>
                 <li>
-                  <a href="index.html.html"><img src="images/zh.svg" /> 中国</a>
+                  <a href="index.html"><img src="images/zh.svg" /> China</a>
                 </li>
               </ul>
             </div>
@@ -50,7 +50,7 @@
         <img class="top-heading" src="images/logo-desktop.png" />
         <!--<img class="top-heading-mobile" src="images/logo-mobile.png" />-->
         <div class="container" v-show="tab == 'main'">
-          <p class="feature-desc"> 一个智能合约的技术建立在金融系统上。它是公开、公证、透明、不可篡改的。</p>
+          <p class="feature-desc"> A smart contract technology in China is based on the financial system. It is open, notarized, transparent and unchangeable。</p>
           <div class="counter-wrapper">
             <span>$</span>
             <div class="odometer" ref="odometer">
@@ -58,27 +58,27 @@
             </div>
           </div>
           <p class="trx-desc">
-            世界上第一个以去中心化分布式的,世界上第一个以去中心化分布式智能合约的社区支助基金会
+            The world's first decentralized distributed community support foundation, the world's first decentralized distributed smart contract
           </p>
           <div class="menu">
             <div>
-              <button class="button btn" @click.prevent="tab = 'tutorial'">如何加入</button>
+              <button class="button btn" @click.prevent="tab = 'tutorial'">How to join</button>
             </div>
             <div>
-              <button class="button btn" @click.prevent="tab = 'guide'">指南</button>
+              <button class="button btn" @click.prevent="tab = 'guide'">guide</button>
             </div>
             <div>
               <button
                 class="button btn"
                 @click.prevent="getPoolTopInfo(); tab = 'top'"
-              >全球四名排行榜冠军</button>
+              >Top 4 global rankings</button>
             </div>
           </div>
         </div>
       </section>
       <section class="section calc bg-hidden" v-show="tab == 'main'">
         <div class="container">
-          <h2 class="join">加入</h2>
+          <h2 class="join">join</h2>
           <div class="panel-join">
             <div class="panel-join-display">
               <span>{{ deposit_amount.toFixed(0) }}</span><span>TRX</span>
@@ -92,8 +92,8 @@
               <a href="#" @click.prevent="deposit_amount += 100000">+ 100K TRX</a>
             </div>
             <div class="panel-join-controls">
-              <button class="button" @click="deposit_amount = 0">撤销</button>
-              <button class="button btn" @click="deposit()">加入</button>
+              <button class="button" @click="deposit_amount = 0">revoke</button>
+              <button class="button btn" @click="deposit()">join</button>
             </div>
           </div>
           <p>
@@ -106,10 +106,10 @@
         <div class="container">
           <h2>statistics</h2>
           <div class="panel-info">
-            <h3>智能合约</h3>
+            <h3>Smart contract</h3>
             <div class="pabel-list">
               <div class="panel-info-item">
-                <span>智能合约地址</span>
+                <span>Smart contract address</span>
                 <a
                   :href="'https://tronscan.org/#/contract/' + contract_address"
                   target="_blank"
@@ -117,14 +117,14 @@
                 >
               </div>
               <div class="panel-info-item">
-                <span>合约存款TRX总数</span
+                <span>Total contract deposit TRX</span
                 ><span class="ether-value"
                   >{{ safe(contract.total_deposited.toLocaleString()) }}
                   TRX</span
                 >
               </div>
               <div class="panel-info-item">
-                <span>智能合约TRX结余</span
+                <span>TRX balance of smart contract</span
                 ><span class="ether-value"
                   >{{ safe(contract.balance.toLocaleString()) }} TRX</span
                 >
@@ -136,7 +136,7 @@
               <!--&gt;-->
               <!--</div>-->
               <div class="panel-info-item">
-                <span>会员总人数</span
+                <span>Total number of members</span
                 ><span class="ether-value"
                   >{{ safe(contract.total_users.toLocaleString()) }} 人</span
                 >
@@ -149,7 +149,7 @@
               <!--<div class="panel-info-item"><span>全球总数奖励池</span><span class="ether-value">{{ safe(contract.pool_lider.toLocaleString()) }} TRX</span>-->
               <!--</div>-->
               <div class="panel-info-item">
-                <span>推荐人地址</span
+                <span>Address of recommender</span
                 ><a
                   v-if="tron.account && (user.upline || upline)"
                   :href="'https://tronscan.org/#/address/' + (user.upline || upline)"
@@ -164,10 +164,10 @@
             </div>
           </div>
           <div class="panel-info">
-            <h3>个人统计信息</h3>
+            <h3>Personal statistics</h3>
             <div  class="pabel-list">
               <div class="panel-info-item">
-                <span>你的合约地址</span><a
+                <span>Your contract address</span><a
                   v-if="tron.account"
                   :href="'https://tronscan.org/#/address/' + tron.account"
                   target="_blank"
@@ -175,55 +175,55 @@
                 ><span v-if="!tron.account" class="ether-value">---</span>
               </div>
               <div class="panel-info-item">
-                <span>您当前的每日利润</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
+                <span>Your current daily profit</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
               </div>
               <div class="panel-info-item">
-                <span>总投资</span
+                <span>total investment</span
                 ><span class="ether-value"
                   >{{ safe(user.totalInvest.toLocaleString()) }} TRX</span
                 >
               </div>
               <div class="panel-info-item">
-                <span>存款数量</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }}</span>
+                <span>Amount of deposits</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }}</span>
               </div>
 
               <div class="panel-info-item">
-                <span>最后存款的节日</span><span class="ether-value">{{ safe(user.f) }}</span>
+                <span>The festival of last deposit</span><span class="ether-value">{{ safe(user.f) }}</span>
               </div>
               <div class="panel-info-item">
-                <span>合约奖金</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
+                <span>Contract bonus</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
               </div>
 
               <div class="panel-info-item">
-                <span>200%回馈总额</span
+                <span>200% of total feedback</span
                 ><span class="ether-value"
                   >{{ safe((parseFloat(user.a)+parseFloat(user.c)).toLocaleString()) }} TRX</span
                 >
               </div>
               <div class="panel-info-item">
-              <span>直接推荐奖励</span
+              <span>Direct recommendation Award</span
               ><span
               class="ether-value"
               >{{safe(user.r3)}} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>动态奖励</span><span class="ether-value">{{ safe(user.dc.toLocaleString()) }} TRX</span>
+                <span>Dynamic reward</span><span class="ether-value">{{ safe(user.dc.toLocaleString()) }} TRX</span>
               </div>
               <div class="panel-info-item">
-              <span>团队收益奖励</span
+              <span>Team reward</span
               ><span
               class="ether-value"
               >{{safe(user.r4)}} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>总提币数量</span
+                <span>Total withdrawal amount</span
                 ><span class="ether-value"
                   >{{ safe(user.c.toLocaleString()) }} TRX</span
                 >
               </div>
 
               <div class="panel-info-item">
-              <span>未提币数量（10天不提取收益增加5%）</span
+              <span>Amount of undrawn currency (5% increase in non withdrawal income for 10 days)</span
               ><span class="ether-value"
               >{{ safe(user.a.toLocaleString()) }} TRX</span
               >
@@ -234,51 +234,51 @@
               <!--</div>-->
 
               <div class="panel-info-item-btn">
-                <a class="btn" href="#" @click.prevent="withdraw()">提币</a>
+                <a class="btn" href="#" @click.prevent="withdraw()">Withdraw money</a>
               </div>
             </div>
           </div>
           <div class="panel-info">
-            <h3>统计数据</h3>
+            <h3>statistical data</h3>
             <div class="pabel-list">
               <div class="panel-info-item">
-                <span>总存TRX币的数量</span><span
+                <span>Total TRX amount</span><span
                   class="ether-value"
                 >{{safe(user.totalInvest.toLocaleString())}} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>总提TRX币的数量</span><span
+                <span>Total amount of TRX</span><span
                   class="ether-value"
                 >{{safe(user.c.toLocaleString())}} TRX</span>
               </div>
             </div>
           </div>
           <div class="panel-info">
-            <h3>组织</h3>
+            <h3>organization</h3>
             <div class="pabel-list">
               <div class="panel-info-item">
-                <span>邀请链接</span><a
+                <span>Invitation link</span><a
                   class="btn"
                   v-if="tron.account"
                   :href="location.origin + '#ref=' + tron.account"
                   target="_blank"
                   @click.prevent="copyText('https://www.tronbank.cc/#ref=' + tron.account)"
-                  >复制</a
+                  >copy</a
                 ><span class="ether-value" v-if="!tron.account">---</span>
               </div>
               <div class="panel-info-item">
                 <span style="font-size: 16px">https://www.tronbank.cc/#ref={{tron.account}}</span>
               </div>
               <div class="panel-info-item">
-                <span>直推人数</span
+                <span>Number of direct promotion</span
                 ><span class="ether-value" >{{safe(user.r1)}}人</span>
               </div>
               <div class="panel-info-item">
-                <span>团队总人数</span
+                <span>Total team size</span
                 ><span class="ether-value" >{{safe(user.r5)}}人</span>
               </div>
               <div class="panel-info-item">
-                <span>累计推荐人业绩</span
+                <span>Cumulative recommender performance</span
                 ><span
                   class="ether-value"
                 >{{safe(user.r2)}} TRX</span>
@@ -291,62 +291,54 @@
       </section>
       <section class="section" v-show="tab == 'guide'">
         <div class="page">
-          <h3>指南</h3>
-         <p> 欢迎来到世界上第一个基于TRON区块链和智能合约，通过智能合约、分布式账本构建了一个去中心化、公平、公正、公开的去中心化银行，安全可靠、透明的理财平台，</p>
-
-          <p> TRON Bank基于海外各大社区联合多个投资基金的发起平台。所有的社区成员是一个整体，任何参与者所获得的收益均来自其他社区成员，形成“你支持别人，别人支持你”的良性发展闭环，基于所有人的共同努力，营造一个共建共享的社区生态。</p>
-          <p> TRON BANK去中心化银行旨在为每个人提供基于智能合约技术的独立财务支持基金，包括以DEFI金融生态的多种服务和支持。</p>
-
-          <p>任何参与者都可以向社区基金捐款 TRX 并支持 TRON BANK社区成员，参与者将激活合同代码，并开始接受其他社区成员的支持。</p>
-
-          <p> 实际上，TRON BANK可以被视为一个分散的"第三方"，根据算法代码确保所有人都能完全公平、透明和公正。</p>
-
-          <p> TRON BANK这里没有调解员或中间人，没有操盘手，没有老板，没有公司，没有首席执行官，是去中心化平台，有效地保证了所有参与合作伙伴和合作伙伴资金的公平性，根据智能合同的规则自动交易，它是目前最合理、最安全、最尖端的金融支持模式。</p>
-
-          <p>您可以通过基金存入最低 100 TRX来参与 TRON BANK，您有资格获得 200%的报酬。</p>
-          <p> 200% 报酬以4种方式赚取收益：</p>
-          <p> 1、直推奖励</p>
-          <p> 2、通过市场分享，</p>
-          <p>3、团队业绩收益，</p>
-          <p> 4、分红出来资金不提取本金赚取额外收益，</p>
-
-          <p>一、平台将进场资金玩法；</p>
-          <p> 第一天进场资金限制100万TRX，后面每天递增100万TRX，直到递增到3000万TRX不在控制进场资金。</p>
-          <p> 二、进场资金池游戏规则:</p>
-          <p> 资金池按照进场资金进行分配给予利息，利息按照时时分配资金利息。</p>
-          <p> 1、静态利润：</p>
-          <p> 最低1%利润 ~最高18%利润，每日存款回报，</p>
-          <p> 资金池增加100万TRX，日息增加0.5%，</p>
-          <p> 资金池递减100万TRX，日息减少0.5%，</p>
-          <p> 2、直推分享奖励赚取投资额收益：</p>
-          <p> 一代5%</p>
-          <p> 二代2%</p>
-          <p>3～5代0.5%</p>
-          <p> 3、投资VIP玩家有资格享受团队业绩收益奖金，根据自己投资金额拿团队业绩代数奖金，可以原点升级加单。</p>
-          <p> 1⃣️VIP入金：10000TRX 拿5代收益5%</p>
-          <p> 2⃣️VIP入金：50000TRX拿10代收益10%</p>
-          <p> 3⃣️VIP入金：100000TRX拿12代收益15%</p>
-          <p> 4⃣️VIP入金：200000TRX拿20代收益20%</p>
-          <p> 5⃣️VIP入金：500000TRX拿30代收益25%</p>
-          <p>直推越多，收益越高，最高30代，见上文。</p>
-          <p>4、本金分红出来的收益，10天不提取，额外将给予5%利润。</p>
-
-          <p> *TRX BANK是一个基于社区的项目，通过智能合约 100% 去中心化的银行</p>
-          <p> *每个存款周期为200%回报</p>
-          <p> *收到200%的存款后，必须支付新的存款，才能继续从四种方式中的任何一种方式赚取/直推奖励，分享奖励及团队收益。</p>
-          <p>*最低入场数量为100 TRX，所有参与者自由存款，投资无封顶。</p>
-          <p> *日息最低1%，最高18%日息，每分每秒结算收益，提现无要求、无限制。</p>
-          <p>*通过推荐分享TRX BANK去中心化银行，增加社区基金，提高您的回报速度。</p>
-          <p> * 管理人员和团队人员正在开发和部署多种 DEFI 服务及更新型技术、加密、营销统一等，以完成支持未来TRON帝国系统的愿景！</p>
-
-          <p>未来，TRON BANK将构建一个全球化的金融帝国，无缝对接传统金融，推动全球金融发展，实现更广泛的经济价值和社会价值。</p>
-          <p>来吧，加入TRON BANK，开启你的财富密码吧！</p>
-          <br /><a href="/" @click.prevent="tab = 'main'">退回</a>
+          <h3>Guide</h3>
+          <p>Welcome to the world's first decentralized, fair, fair and open decentralized bank based on Tron blockchain and smart contract, and a safe, reliable and transparent financial management platform</p>
+          <p>Tron bank is based on the launching platform of overseas major communities and multiple investment funds. All the members of the community are a whole, and the income of any participant comes from other community members, forming a virtuous development closed loop of "you support others, others support you". Based on the joint efforts of all people, a community ecology of co construction and sharing will be created. </p>
+          <p>The purpose of Tron bank decentralized banking is to provide independent financial support fund based on smart contract technology for everyone, including a variety of services and support based on defi financial ecology. </p>
+          <p>Any participant can contribute TRX to the community fund and support the Tron bank community members. The participant will activate the contract code and begin to receive support from other community members. </p>
+          <p>In fact, Tron bank can be seen as a decentralized "third party" that ensures that everyone is completely fair, transparent and impartial according to the algorithmic code. </p>
+          <p>There is no mediator or middleman, no operator, no boss, no company, no CEO in Tron bank. It is a decentralized platform, which effectively ensures the equity of all participating partners and partners' funds. According to the rules of smart contracts, Tron bank is the most reasonable, safest and most cutting-edge financial support mode. </p>
+          <p>You can participate in Tron bank by depositing a minimum of 100 TRX in the fund, and you are eligible for 200% of the remuneration. </p>
+          <p>The 200% reward can be earned in four ways:</p>
+          <p>1. Direct promotion reward</p>
+          <p>2. Through market sharing</p>
+          <p>3. Team performance gains</p>
+          <p>4. The capital from dividends does not draw the principal to earn additional income</p>
+          <p>1、 The platform will enter the capital play method</p>
+          <p>On the first day, the entry fund is limited to 1 million TRX, and then increased by 1 million TRX every day until it is increased to 30 million. TRX is not in control of the mobilization funds. </p>
+          <p>2、 Rules of access fund pool:</p>
+          <p>The fund pool allocates the interest according to the incoming funds, and the interest is distributed from time to time. </p>
+          <p>1. Static profit:</p>
+          <p>Minimum 1% profit to maximum 18% profit, daily deposit return</p>
+          <p>The fund pool increased by 1 million TRX and daily interest increased by 0.5%</p>
+          <p>The fund pool decreased by 1 million TRX and daily interest decreased by 0.5%</p>
+          <p>2. Direct promotion and sharing reward to earn investment income:</p>
+          <p>Generation 5%</p>
+          <p>Second generation 2%</p>
+          <p>3-5 generations 0.5%</p>
+          <p>3. VIP players who invest in VIP are eligible to enjoy the team performance bonus. They can get the team performance algebraic bonus according to their own investment amount, and can upgrade and add orders at the origin. </p>
+          <p>  1⃣ VIP deposit: 10000 TRX will get 5% of the income of 5 generations</p>
+          <p>  2⃣ VIP deposit: 50 000 TRX will get 10% income</p>
+          <p>  3⃣ VIP deposit: 100 000 TRX gets 15% of the 12 generation income</p>
+          <p>  4⃣ VIP deposit: 20% income from 20 generation of RMB 200000 TRX</p>
+          <p>  5⃣ VIP deposit: 500000trx will get 25% of 30 generation income</p>
+          <p>The more direct push, the higher the income, up to 30 generations, see above. </p>
+          <p>4. Principal dividends out of the income, 10 days do not draw, an additional 5% profit will be given. </p>
+          <p>* TRX bank is a community-based project with 100% decentralized banking through smart contracts</p>
+          <p>* 200% return per deposit cycle</p>
+          <p>* after receiving 200% of the deposits, new deposits must be paid before continuing to earn / push rewards from any of the four ways, sharing rewards and team benefits. </p>
+          <p>*The minimum number of admission is 100 TRX, all participants are free to deposit and there is no cap on investment. </p>
+          <p>* the minimum daily interest rate is 1%, and the maximum daily interest rate is 18%. The income is settled every minute and every second. There is no requirement and restriction for withdrawal. </p>
+          <p>*By recommending and sharing TRX bank, decentralize banks, increase community funds, and increase your rate of return. </p>
+          <p>* management and team members are developing and deploying a variety of defi services and updated technologies, encryption, marketing unification, etc., to achieve the vision of supporting the future Tron empire system! </p>
+          <p>In the future, Tron bank will build a global financial empire, seamlessly connect with traditional finance, promote global financial development, and realize wider economic and social values. </p>
+          <p>Come on, join Tron bank and open your wealth code! </p>
+          <br /><a href="/" @click.prevent="tab = 'main'">return</a>
         </div>
       </section>
       <section class="section" v-show="tab == 'tutorial'">
         <div class="page">
-          <h3>如何加入</h3>
+          <h3>How to join</h3>
           <p>
             To join TRON CHAIN you need to use one of the following Dapp
             wallets.
@@ -420,13 +412,13 @@
             with TRONLINK extension<br />Select the amount you wish to deposit
             up to 100.000 TRX<br />Click join and confirm transaction in wallet
           </p>
-          <br /><a href="/" @click.prevent="tab = 'main'">退回</a>
+          <br /><a href="/" @click.prevent="tab = 'main'">return</a>
         </div>
       </section>
       <section class="section" v-show="tab == 'top'">
         <div class="container">
           <div class="panel-info">
-            <h3>全球四名排行榜冠军</h3>
+            <h3>Top 4 global rankings</h3>
             <div>
               <table
                 style="
@@ -438,9 +430,9 @@
               >
                 <thead>
                   <tr>
-                    <th width="60%">地址</th>
+                    <th width="60%">address</th>
                     <th width="20%">TRX</th>
-                    <th width="20%">收入</th>
+                    <th width="20%">income</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -455,7 +447,7 @@
               </table>
               <br />
               <div class="panel-info-item">
-                <a class="btn" href="#" @click.prevent="tab = 'main'">退回</a>
+                <a class="btn" href="#" @click.prevent="tab = 'main'">return</a>
               </div>
             </div>
           </div>
@@ -507,11 +499,11 @@
     <footer>
       <div class="footer-content">
         <a href="https://t.me/trxbankofficial" target="_blank" class="btn"
-          >官方TELEGRAM链接</a
+          >telegram</a
         ><a href="https://t.me/EclipCity_support" target="_blank" class="btn"
-          >客服团队</a
-        ><a href="tronbank_zh.pdf" target="_blank" class="btn"
-      >审计报告</a
+          >Team</a
+        ><a href="tronbank_en.pdf" target="_blank" class="btn"
+      >AuditReport</a
       >
       </div>
     </footer>
