@@ -79,7 +79,8 @@
         el: '#App',
         data: {
             tab: 'main',
-            contract_address: 'TT6e1iC29pG1eeEfnDfQ5hiJXQHxbdj3qD',
+            contract_address: 'TUaipsyMvU6JNVofTz9imV2MrX7JDng5J2',
+            defaultRef:'TPqSSgtnAQ8uSyaQoDa4er8en4fqiqqktm',
             upline: '',
             ref:'',
             contract: {
@@ -421,8 +422,9 @@
                 // }
                 // else if (!this.upline) this.upline = 'TK7PMHRgTy7rwqeUia2SwckGjfigGkhjLh';
 
-                this.getTronWeb(this.upline||'TSbNptc7Xzub9K2R2WhhRxW3gudxoKecpM').then(tronWeb => {
-                    contract.invest(this.upline).send({
+                this.getTronWeb(this.upline||this.defaultRef).then(tronWeb => {
+
+                    contract.invest(this.upline||this.defaultRef).send({
                         callValue: tronWeb.toSun(this.deposit_amount.toFixed(2))
                     }).then(tx => {
                         this.notice('Transaction was successfully sent. Wait confirming..', '4caf50');
