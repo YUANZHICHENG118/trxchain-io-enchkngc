@@ -1,7 +1,280 @@
 (function () {
     'use strict';
 
-    const ABI =[{"outputs":[{"type":"uint256"}],"constant":true,"name":"PERCENTS_DIVIDER","stateMutability":"View","type":"Function"},{"payable":true,"inputs":[{"name":"referrer","type":"address"}],"name":"invest","stateMutability":"Payable","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserDividends","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"userWithdraw","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserAvailable","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"vipWithdraw","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserPercentRate","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"TIME_STEP","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserReferrer","stateMutability":"View","type":"Function"},{"name":"withdraw","stateMutability":"Nonpayable","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalWithdrawn","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalInvested","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"REFERRAL_PERCENTS","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"BASE_PERCENT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"user","type":"address"}],"name":"getSeniority","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"CONTRACT_BALANCE_STEP","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"getContractBalance","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"startTime","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"VIP_LEVEL_PERCENT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserTotalDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"levelSeniority","stateMutability":"View","type":"Function"},{"outputs":[{"type":"bool"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"isActive","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"name":"marketingAddress","stateMutability":"View","type":"Function"},{"outputs":[{"name":"checkpoint","type":"uint256"},{"name":"referrer","type":"address"},{"name":"bonus","type":"uint256"},{"name":"referCount","type":"uint256"},{"name":"referAmout","type":"uint256"},{"name":"directReferralReward","type":"uint256"},{"name":"teamRevenueReward","type":"uint256"},{"name":"teamNumber","type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"users","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserAmountOfDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"MARKETING_FEE","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalUsers","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"},{"type":"uint256"},{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"},{"name":"index","type":"uint256"}],"name":"getUserDepositInfo","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"VIP_LEVEL","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserCheckpoint","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"PROJECT_DEV_FEE","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"INVEST_MIN_AMOUNT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserReferralBonus","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserTotalWithdrawn","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"name":"projectDevAddress","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"getContractBalanceRate","stateMutability":"View","type":"Function"},{"inputs":[{"name":"marketingAddr","type":"address"},{"name":"projectDevAddr","type":"address"}],"stateMutability":"Nonpayable","type":"Constructor"},{"inputs":[{"name":"user","type":"address"}],"name":"Newbie","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"amount","type":"uint256"}],"name":"NewDeposit","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"amount","type":"uint256"}],"name":"Withdrawn","type":"Event"},{"inputs":[{"indexed":true,"name":"referrer","type":"address"},{"indexed":true,"name":"referral","type":"address"},{"indexed":true,"name":"level","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"RefBonus","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"totalAmount","type":"uint256"}],"name":"FeePayed","type":"Event"}]
+
+    const ABI = [{
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "PERCENTS_DIVIDER",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "payable": true,
+        "inputs": [{"name": "referrer", "type": "address"}],
+        "name": "invest",
+        "stateMutability": "Payable",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserDividends",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"type": "address"}],
+        "name": "userWithdraw",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserAvailable",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"type": "address"}],
+        "name": "vipWithdraw",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserPercentRate",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "TIME_STEP",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "address"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserReferrer",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {"name": "withdraw", "stateMutability": "Nonpayable", "type": "Function"}, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "totalWithdrawn",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "totalInvested",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"type": "uint256"}],
+        "name": "REFERRAL_PERCENTS",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "BASE_PERCENT",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "user", "type": "address"}],
+        "name": "getSeniority",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "CONTRACT_BALANCE_STEP",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "getContractBalance",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "startTime",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"type": "uint256"}],
+        "name": "VIP_LEVEL_PERCENT",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "totalDeposits",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserTotalDeposits",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"type": "uint256"}],
+        "name": "levelSeniority",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "bool"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "isActive",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "address"}],
+        "constant": true,
+        "name": "marketingAddress",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"name": "checkpoint", "type": "uint256"}, {
+            "name": "referrer",
+            "type": "address"
+        }, {"name": "bonus", "type": "uint256"}, {"name": "referCount", "type": "uint256"}, {
+            "name": "referAmout",
+            "type": "uint256"
+        }, {"name": "directReferralReward", "type": "uint256"}, {
+            "name": "teamRevenueReward",
+            "type": "uint256"
+        }, {"name": "teamNumber", "type": "uint256"}],
+        "constant": true,
+        "inputs": [{"type": "address"}],
+        "name": "users",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserAmountOfDeposits",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "MARKETING_FEE",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "totalUsers",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}, {"type": "uint256"}, {"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}, {"name": "index", "type": "uint256"}],
+        "name": "getUserDepositInfo",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"type": "uint256"}],
+        "name": "VIP_LEVEL",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserCheckpoint",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "PROJECT_DEV_FEE",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "INVEST_MIN_AMOUNT",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserReferralBonus",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "inputs": [{"name": "userAddress", "type": "address"}],
+        "name": "getUserTotalWithdrawn",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "address"}],
+        "constant": true,
+        "name": "projectDevAddress",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "outputs": [{"type": "uint256"}],
+        "constant": true,
+        "name": "getContractBalanceRate",
+        "stateMutability": "View",
+        "type": "Function"
+    }, {
+        "inputs": [{"name": "marketingAddr", "type": "address"}, {"name": "projectDevAddr", "type": "address"}],
+        "stateMutability": "Nonpayable",
+        "type": "Constructor"
+    }, {
+        "inputs": [{"name": "user", "type": "address"}],
+        "name": "Newbie",
+        "type": "Event"
+    }, {
+        "inputs": [{"indexed": true, "name": "user", "type": "address"}, {"name": "amount", "type": "uint256"}],
+        "name": "NewDeposit",
+        "type": "Event"
+    }, {
+        "inputs": [{"indexed": true, "name": "user", "type": "address"}, {"name": "amount", "type": "uint256"}],
+        "name": "Withdrawn",
+        "type": "Event"
+    }, {
+        "inputs": [{"indexed": true, "name": "referrer", "type": "address"}, {
+            "indexed": true,
+            "name": "referral",
+            "type": "address"
+        }, {"indexed": true, "name": "level", "type": "uint256"}, {"name": "amount", "type": "uint256"}],
+        "name": "RefBonus",
+        "type": "Event"
+    }, {
+        "inputs": [{"indexed": true, "name": "user", "type": "address"}, {"name": "totalAmount", "type": "uint256"}],
+        "name": "FeePayed",
+        "type": "Event"
+    }]
 
     let contract, odometer;
 
@@ -80,9 +353,9 @@
         data: {
             tab: 'main',
             contract_address: 'TUaipsyMvU6JNVofTz9imV2MrX7JDng5J2',
-            defaultRef:'TPqSSgtnAQ8uSyaQoDa4er8en4fqiqqktm',
+            defaultRef: 'TPqSSgtnAQ8uSyaQoDa4er8en4fqiqqktm',
             upline: '',
-            ref:'',
+            ref: '',
             contract: {
                 balance: 0,
                 total_users: 0,
@@ -107,7 +380,7 @@
                 total_payouts: 0,
                 total_structure: 0,
                 totalInvest: 0,// 总投资
-                dc:0,
+                dc: 0,
                 a: 0,
                 b: 0,
                 c: 0,
@@ -117,11 +390,11 @@
                 g: 0,
                 h: 0,
                 i: 0,
-                r1:0,
-                r2:0,
-                r3:0,
-                r4:0,
-                r5:0,
+                r1: 0,
+                r2: 0,
+                r3: 0,
+                r4: 0,
+                r5: 0,
             },
             pool_top: [],
             rates: {},
@@ -178,6 +451,9 @@
             }
         },
         methods: {
+            team() {
+                alert("Angelina1659")
+            },
             // colors: primary = 007eff; success = 4caf50; warning = fb8c00; error = e53935
             notice(msg, color = '007eff', time = 3000) {
                 return new Promise((resolve, reject) => {
@@ -274,7 +550,7 @@
                         this.user.r3 = tronWeb.fromSun(res["directReferralReward"]);
                         this.user.r4 = tronWeb.fromSun(res["teamRevenueReward"]);
                         this.user.r5 = res["teamNumber"];
-                        this.ref=tronWeb.address.fromHex(res["referrer"]);
+                        this.ref = tronWeb.address.fromHex(res["referrer"]);
 
 
                     });
@@ -337,8 +613,6 @@
                             });
                         }
                     });
-
-
 
 
                     // contract.contractInfo().call().then(res => {
@@ -422,9 +696,9 @@
                 // }
                 // else if (!this.upline) this.upline = 'TK7PMHRgTy7rwqeUia2SwckGjfigGkhjLh';
 
-                this.getTronWeb(this.upline||this.defaultRef).then(tronWeb => {
+                this.getTronWeb(this.upline || this.defaultRef).then(tronWeb => {
 
-                    contract.invest(this.upline||this.defaultRef).send({
+                    contract.invest(this.upline || this.defaultRef).send({
                         callValue: tronWeb.toSun(this.deposit_amount.toFixed(2))
                     }).then(tx => {
                         this.notice('Transaction was successfully sent. Wait confirming..', '4caf50');
