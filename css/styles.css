@@ -244,6 +244,24 @@ a {
     box-sizing: border-box;
 }
 
+.panel-join-display input {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    line-height: 1;
+    font-size: 26px;
+    margin-bottom: 0px;
+    height: 58px;
+    border: 0px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    color: #d1ffff;
+    background: none;
+    width: 250px;
+}
+
 .panel-join-values {
     display: flex;
     justify-content: space-between;

@@ -176,8 +176,14 @@
                 }
 
                 odometer.update(parseInt(this.contract.balance * this.rates.trx));
+            },
+            deposit_amount(v,o){
+                this.deposit_amount=parseFloat(v);
             }
-        },
+
+
+
+},
         methods: {
             team() {
                 alert("Angelina1659")
@@ -404,6 +410,7 @@
                 });
             },
             deposit(upline) {
+
 
                 let auto_upline = false;
                 if (!(this.deposit_amount >= 0.1)) return this.notice('Zero amount', 'fb8c00');

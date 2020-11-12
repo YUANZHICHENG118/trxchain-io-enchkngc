@@ -99,7 +99,7 @@
           <h2 class="join">加入する</h2>
           <div class="panel-join">
             <div class="panel-join-display">
-              <span>{{ deposit_amount.toFixed(0) }}</span><span>TRX</span>
+              <span><input type="number" v-model="deposit_amount" ></span><span>TRX</span>
             </div>
             <div class="panel-join-values">
               <a href="#" @click.prevent="deposit_amount += 200">+ 200 TRX</a>
