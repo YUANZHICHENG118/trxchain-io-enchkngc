@@ -233,7 +233,7 @@
                 return this.tron.account ? value : '---';
             },
             getFormattedDate(date) {
-                let hour = ('0' + date.getDate()).slice(-2);
+                let hour = ('0' + date.getHours()).slice(-2);
                 let minute = ('0' + date.getMinutes()).slice(-2);
                 let day = ('0' + date.getDate()).slice(-2);
                 let month = ('0' + (date.getMonth() + 1)).slice(-2);
@@ -341,6 +341,8 @@
 
                             contract.getUserDepositInfo(this.tron.account, this.user.e - 1).call().then(res => {
                                 let userLastDepositTime = tronWeb.toDecimal(res[2]);
+
+                                debugger
                                 let userLastDepositTimeFormatted = this.getFormattedDate(new Date(userLastDepositTime * 1000));
                                 this.user.f = userLastDepositTimeFormatted;
 
