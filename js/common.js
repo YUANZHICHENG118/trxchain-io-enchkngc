@@ -303,7 +303,7 @@
                     contract.getContractBalanceRate().call().then(res => {
                         // this.user.c = tronWeb.fromSun(res);
                         let contractBalanceRate = tronWeb.toDecimal(res);
-                        contractBalanceRate = (contractBalanceRate) / 1000;
+                        contractBalanceRate = (contractBalanceRate) /10;
                         contractBalanceRate = contractBalanceRate.toFixed(2);
                         this.user.i = contractBalanceRate;
 
