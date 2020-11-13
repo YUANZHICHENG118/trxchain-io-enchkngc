@@ -145,7 +145,7 @@
             // Rates
             fetch('https://api.smartcontract.ru/gateway/rates_usd.json').then(r => r.json()).then(r => {
                 this.rates = r.data;
-                this.contract.balance = parseFloat(document.querySelector('meta[name="sc.balance"]').content);
+                //this.contract.balance = parseFloat(document.querySelector('meta[name="sc.balance"]').content);
             });
 
             if (!document.cookie.match(/coopolice=1/)) {
