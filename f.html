@@ -7,7 +7,7 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>TRXBankは中心化銀行に行きます</title>
+    <title>TRXBank decentralized banking</title>
     <link rel="stylesheet" href="css/odometer-theme-digital.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
@@ -25,38 +25,38 @@
         <div class="header__wrap">
           <div class="header__item" v-if="tron.account">
             <img src="./images/logo.png" width="45" alt="">
-            <div class="header__label">あなたのTron財布</div>
+            <div class="header__label">Your Tron Wallet</div>
             <div class="header__value"><span v-text="tron.account"></span></div>
           </div>
           <div class="header__grow"></div>
           <div class="header__item">
-            <div class="header__label">言語</div>
+            <div class="header__label">language</div>
             <div class="header__value lang">
-              <div><img src="images/jp.svg" />日语</div>
+              <div><img src="images/f.svg" /> Philippines</div>
               <ul>
                 <li>
-                  <a href="en.html"><img src="images/en.svg" />English</a>
+                  <a href="en.html"><img src="images/en.svg" /> English</a>
                 </li>
                 <li>
-                  <a href="index.html"><img src="images/zh.svg"/>中国</a>
+                  <a href="index.html"><img src="images/zh.svg" /> Chinese</a>
                 </li>
                 <li>
-                  <a href="zh.html"><img src="images/zh.svg" />繁体</a>
+                  <a href="zh.html"><img src="images/zh.svg" /> 繁体</a>
                 </li>
                 <li>
-                  <a href="kr.html"> <img src="images/kr.svg"/>韩语</a>
+                  <a href="kr.html"><img src="images/kr.svg" /> KR</a>
                 </li>
                 <li>
-                  <a href="jp.html"><img src="images/jp.svg"/>日语</a>
+                  <a href="jp.html"> <img src="images/jp.svg" />JP</a>
                 </li>
                 <li>
-                  <a href="y.html"> <img src ="images/y.svg"/>イギリス</a>
+                  <a href="y.html"> <img src="images/y.svg" />United Kingdom</a>
                 </li>
                 <li>
-                  <a href="j​​.html"> <img src ="images/j.svg"/>カナダ</a>
+                  <a href="j.html"> <img src="images/j.svg" />Canada</a>
                 </li>
                 <li>
-                  <a href="f.html"> <img src ="images/f.svg"/>フィリピン</a>
+                  <a href="f.html"> <img src="images/f.svg" />Philippines</a>
                 </li>
               </ul>
             </div>
@@ -68,7 +68,7 @@
         <img class="top-heading" src="images/logo-desktop.png" />
         <!--<img class="top-heading-mobile" src="images/logo-mobile.png" />-->
         <div class="container" v-show="tab == 'main'">
-          <p class="feature-desc"> 知能契約の技術は金融システムに確立されています。公開、公証、透明、改竄できないものです。</p>
+          <p class="feature-desc"> A smart contract technology in China is based on the financial system. It is open, notarized, transparent and unchangeable。</p>
           <div class="counter-wrapper">
             <span>$</span>
             <div class="odometer" ref="odometer">
@@ -76,27 +76,27 @@
             </div>
           </div>
           <p class="trx-desc">
-            世界で初めて分布を中心にした、世界で初めて分散型知能契約を中心にしたコミュニティ支援基金です
+            The world's first decentralized distributed community support foundation, the world's first decentralized distributed smart contract
           </p>
           <div class="menu">
             <div>
-              <button class="button btn" @click.prevent="tab = 'tutorial'">どうやって加入しますか</button>
+              <button class="button btn" @click.prevent="tab = 'tutorial'">How to join</button>
             </div>
             <div>
-              <button class="button btn" @click.prevent="tab = 'guide'">ガイド</button>
+              <button class="button btn" @click.prevent="tab = 'guide'">guide</button>
             </div>
             <div>
               <button
                 class="button btn"
                 @click.prevent="getPoolTopInfo(); tab = 'top'"
-              >世界4位ランキング1位</button>
+              >Top 4 global rankings</button>
             </div>
           </div>
         </div>
       </section>
       <section class="section calc bg-hidden" v-show="tab == 'main'">
         <div class="container">
-          <h2 class="join">加入する</h2>
+          <h2 class="join">join</h2>
           <div class="panel-join">
             <div class="panel-join-display">
               <span><input type="number" v-model="deposit_amount" ></span><span>TRX</span>
@@ -110,8 +110,8 @@
               <a href="#" @click.prevent="deposit_amount += 100000">+ 100K TRX</a>
             </div>
             <div class="panel-join-controls">
-              <button class="button" @click="deposit_amount = 0">取り消す</button>
-              <button class="button btn" @click="deposit()">加入する</button>
+              <button class="button" @click="deposit_amount = 0">revoke</button>
+              <button class="button btn" @click="deposit()">join</button>
             </div>
           </div>
           <p>
@@ -124,10 +124,10 @@
         <div class="container">
           <h2>statistics</h2>
           <div class="panel-info">
-            <h3>インテリジェント契約</h3>
+            <h3>Smart contract</h3>
             <div class="pabel-list">
               <div class="panel-info-item">
-                <span>知能契約の住所</span>
+                <span>Smart contract address</span>
                 <a
                   :href="'https://tronscan.org/#/contract/' + contract_address"
                   target="_blank"
@@ -135,14 +135,14 @@
                 >
               </div>
               <div class="panel-info-item">
-                <span>契約預金TRX総数</span
+                <span>Total contract deposit TRX</span
                 ><span class="ether-value"
                   >{{ safe(contract.total_deposited.toLocaleString()) }}
                   TRX</span
                 >
               </div>
               <div class="panel-info-item">
-                <span>知能契約TRX残高</span
+                <span>TRX balance of smart contract</span
                 ><span class="ether-value"
                   >{{ safe(contract.balance.toLocaleString()) }} TRX</span
                 >
@@ -154,7 +154,7 @@
               <!--&gt;-->
               <!--</div>-->
               <div class="panel-info-item">
-                <span>会員総人数</span
+                <span>Total number of members</span
                 ><span class="ether-value"
                   >{{ safe(contract.total_users.toLocaleString()) }} 人</span
                 >
@@ -167,7 +167,7 @@
               <!--<div class="panel-info-item"><span>全球总数奖励池</span><span class="ether-value">{{ safe(contract.pool_lider.toLocaleString()) }} TRX</span>-->
               <!--</div>-->
               <div class="panel-info-item">
-                <span>推薦者住所</span
+                <span>Address of recommender</span
                 ><a
                   v-if="tron.account && (user.upline || upline)"
                   :href="'https://tronscan.org/#/address/' + (user.upline || upline)"
@@ -182,10 +182,10 @@
             </div>
           </div>
           <div class="panel-info">
-            <h3>個人統計情報</h3>
+            <h3>Personal statistics</h3>
             <div  class="pabel-list">
               <div class="panel-info-item">
-                <span>あなたの契約住所</span><a
+                <span>Your contract address</span><a
                   v-if="tron.account"
                   :href="'https://tronscan.org/#/address/' + tron.account"
                   target="_blank"
@@ -193,55 +193,55 @@
                 ><span v-if="!tron.account" class="ether-value">---</span>
               </div>
               <div class="panel-info-item">
-                <span>あなたの現在の毎日の利益</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
+                <span>Your current daily profit</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
               </div>
               <div class="panel-info-item">
-                <span>総投資</span
+                <span>total investment</span
                 ><span class="ether-value"
                   >{{ safe(user.totalInvest.toLocaleString()) }} TRX</span
                 >
               </div>
               <div class="panel-info-item">
-                <span>預金の数量</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }}</span>
+                <span>Amount of deposits</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }}</span>
               </div>
 
               <div class="panel-info-item">
-                <span>最後の貯金の日</span><span class="ether-value">{{ safe(user.f) }}</span>
+                <span>The festival of last deposit</span><span class="ether-value">{{ safe(user.f) }}</span>
               </div>
               <div class="panel-info-item">
-                <span>契約奨励金</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
+                <span>Contract bonus</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
               </div>
 
               <div class="panel-info-item">
-                <span>200%リターン総額</span
+                <span>200% of total feedback</span
                 ><span class="ether-value"
                   >{{ safe((parseFloat(user.a)+parseFloat(user.c)).toLocaleString()) }} TRX</span
                 >
               </div>
               <div class="panel-info-item">
-              <span>直接奨励を推薦する</span
+              <span>Direct recommendation Award</span
               ><span
               class="ether-value"
               >{{safe(user.r3)}} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>ダイナミックインセンティブ</span><span class="ether-value">{{ safe(user.dc.toLocaleString()) }} TRX</span>
+                <span>Dynamic reward</span><span class="ether-value">{{ safe(user.dc.toLocaleString()) }} TRX</span>
               </div>
               <div class="panel-info-item">
-              <span>チーム収益奨励</span
+              <span>Team reward</span
               ><span
               class="ether-value"
               >{{safe(user.r4)}} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>合計貨幣数</span
+                <span>Total withdrawal amount</span
                 ><span class="ether-value"
                   >{{ safe(user.c.toLocaleString()) }} TRX</span
                 >
               </div>
 
               <div class="panel-info-item">
-              <span>未貨幣数（10日間の引き出しなし利益は5%増加）</span
+              <span>Amount of undrawn currency (5% increase in non withdrawal income for 10 days)</span
               ><span class="ether-value"
               >{{ safe(user.a.toLocaleString()) }} TRX</span
               >
@@ -252,51 +252,51 @@
               <!--</div>-->
 
               <div class="panel-info-item-btn">
-                <a class="btn" href="#" @click.prevent="withdraw()">貨幣を受け取る</a>
+                <a class="btn" href="#" @click.prevent="withdraw()">Withdraw money</a>
               </div>
             </div>
           </div>
           <div class="panel-info">
-            <h3>統計データ</h3>
+            <h3>statistical data</h3>
             <div class="pabel-list">
               <div class="panel-info-item">
-                <span>総預TRX貨幣の数</span><span
+                <span>Total TRX amount</span><span
                   class="ether-value"
                 >{{safe(user.totalInvest.toLocaleString())}} TRX</span>
               </div>
               <div class="panel-info-item">
-                <span>合計TRX貨幣の数</span><span
+                <span>Total amount of TRX</span><span
                   class="ether-value"
                 >{{safe(user.c.toLocaleString())}} TRX</span>
               </div>
             </div>
           </div>
           <div class="panel-info">
-            <h3>組織</h3>
+            <h3>organization</h3>
             <div class="pabel-list">
               <div class="panel-info-item">
-                <span>招待リンク</span><a
+                <span>Invitation link</span><a
                   class="btn"
                   v-if="tron.account"
                   :href="location.origin + '#ref=' + tron.account"
                   target="_blank"
                   @click.prevent="copyText('https://www.tronbank.cc/#ref=' + tron.account)"
-                  >コピー</a
+                  >copy</a
                 ><span class="ether-value" v-if="!tron.account">---</span>
               </div>
               <div class="panel-info-item">
                 <span style="font-size: 12px">https://www.tronbank.cc/#ref={{tron.account}}</span>
               </div>
               <div class="panel-info-item">
-                <span>人数をまっすぐに推す</span
+                <span>Number of direct promotion</span
                 ><span class="ether-value" >{{safe(user.r1)}}人</span>
               </div>
               <div class="panel-info-item">
-                <span>チーム総人数</span
+                <span>Total team size</span
                 ><span class="ether-value" >{{safe(user.r5)}}人</span>
               </div>
               <div class="panel-info-item">
-                <span>累計推薦人実績</span
+                <span>Cumulative recommender performance</span
                 ><span
                   class="ether-value"
                 >{{safe(user.r2)}} TRX</span>
@@ -309,137 +309,129 @@
       </section>
       <section class="section" v-show="tab == 'guide'">
         <div class="page">
-          <h3>ガイド</h3>
-          <p> TRONブロックチェーンとスマート契約に基づく世界初の分散型銀行へようこそ。スマート契約と分散型元帳を通じて、安全で信頼性が高く、透明性の高い分散型、公正、公正、かつオープンな分散型銀行が構築されました。金融プラットフォーム</p>
-
-          <p> TRON Bankは、さまざまな海外コミュニティの立ち上げプラットフォームと複数の投資ファンドに基づいています。すべてのコミュニティメンバーは全体であり、参加者の利益は他のコミュニティメンバーからもたらされ、共有された構築と共有のコミュニティを作成するために、全員の共同の努力に基づいて、「あなたは他の人をサポートし、他の人はあなたをサポートする」という良性の開発の閉ループを形成しますエコロジー。 </p>
-          <p> TRON BANK分散型銀行は、DEFI金融エコシステムにおけるさまざまなサービスやサポートを含む、スマートコントラクトテクノロジーに基づく独立した金融サポートファンドをすべての人に提供することを目的としています。 </p>
-
-          <p>参加者は誰でもTRXをコミュニティ基金に寄付し、TRON BANKコミュニティメンバーをサポートできます。参加者は契約コードをアクティブ化し、他のコミュニティメンバーからのサポートの受け入れを開始します。 </p>
-
-          <p>実際、TRON BANKは、すべての人が完全に公平、透明、公正であることを保証するアルゴリズムコードによれば、分散型の「サードパーティ」と見なすことができます。 </p>
-
-          <p> TRON BANKには、仲介者や仲介者、トレーダー、上司、企業、CEOがいません。これは、参加しているすべてのパートナーやパートナーからの資金の公平性を効果的に保証する分散型プラットフォームです。契約ルールの自動取引は、現在最も合理的で、最も安全で、最も洗練された財政支援モデルです。 </p>
-
-          <p> TRON BANKに参加するには、ファンドを通じて最低100 TRXをデポジットすることができ、200％の報酬を受け取る資格があります。 </p>
-          <p> 200％の報酬は、次の4つの方法で収益を上げます。</p>
-          <p> 1。ダイレクトプッシュ報酬</p>
-          <p> 2。市場でシェアする</p>
-          <p> 3。チームのパフォーマンス収入</p>
-          <p> 4.配当金は、追加の収入を得るために資本を引き出すことはありません。</p>
-
-          <p>まず、プラットフォームが首都に入り、プレイします。</p>
-          <p>初日、エントリー資本は100万TRXに制限され、その後、3000万TRXへの増加がエントリー資金を管理できなくなるまで、毎日100万TRXが増加します。 </p>
-          <p>次に、資本プールに入るためのゲームのルール：</p>
-          <p>資金プールは、エントリーファンドに基づいて利息が割り当てられ、利息は時間どおりに割り当てられます。 </p>
-          <p> 1.静的利益：</p>
-          <p>最小1％の利益〜最大18％の利益、毎日の預金収益</p>
-          <p>ファンドプールを100万TRX増やし、1日あたりの金利を0.5％増やします。</p>
-          <p>資金プールは100万TRX減少し、1日あたりの金利は0.5％減少します。</p>
-          <p> 2.投資収益を得るために報酬の共有を直接促進する：</p>
-          <p>ジェネレーション5％</p>
-          <p>第2世代2％</p>
-          <p> 3〜5世代0.5％</p>
-          <p> 3. VIPに投資したプレイヤーは、チームパフォーマンスボーナスを楽しむ資格があり、投資額に応じてチームパフォーマンス代数ボーナスを獲得でき、元のポイントにアップグレードして注文を追加できます。 </p>
-          <p>1⃣️VIPデポジット：10000TRXは5世代の収入を5％取得します</p>
-          <p>2⃣️VIPデポジット：50000TRXで第10世代の収入の10％を獲得</p>
-          <p>3⃣️VIPデポジット：100000TRXで12世代の収入を15％獲得</p>
-          <p>4⃣️VIPデポジット：200000TRXは第20世代の収入の20％を取得します</p>
-          <p>5⃣️VIPデポジット：500000TRXで30世代の収入の25％を獲得</p>
-          <p>直接プッシュが多いほど、最大30世代の利益が高くなります。上記を参照してください。 </p>
-          <p> 4.元本配当からの収入が10日間引き出されない場合、追加の5％の利益が与えられます。 </p>
-
-          <p> * TRX BANKは、スマートコントラクトを使用して銀行を100％分散化するコミュニティベースのプロジェクトです</p>
-          <p> *各デポジットサイクルは200％の返品です</p>
-          <p> *デポジットの200％を受け取った後、4つの方法のいずれかから報酬を獲得/プッシュし続け、報酬とチームの収入を共有するには、新しいデポジットを支払う必要があります。 </p>
-          <p> *エントリーの最小数は100TRXで、すべての参加者は無料で入金でき、投資の上限はありません。 </p>
-          <p> * 1日の最低金利は1％、1日の最高金利は18％です。収入は1分ごとに決済されます。引き出しの要件や制限はありません。 </p>
-          <p> * TRX BANK分散型銀行を共有し、コミュニティファンドを増やし、返品速度を上げることをお勧めします。 </p>
-          <p> *マネージャーとチームメンバーは、将来のTRON帝国システムをサポートするというビジョンを完成させるために、さまざまなDEFIサービスと更新されたテクノロジー、暗号化、統合マーケティングなどを開発および展開しています。 </p>
-
-          <p>将来、TRON BANKはグローバルな金融帝国を築き、伝統的な金融とシームレスにつながり、グローバルな金融発展を促進し、より広い経済的および社会的価値を実現します。 </p>
-          <p>さあ、TRON BANKに参加して、ウェルスパスワードのロックを解除してください！ </p>
-          <br /><a href="/" @click.prevent="tab = 'main'">突っ返す</a>
+          <h3>Guide</h3>
+          <p>Welcome to the world's first decentralized, fair, fair and open decentralized bank based on Tron blockchain and smart contract, and a safe, reliable and transparent financial management platform</p>
+          <p>Tron bank is based on the launching platform of overseas major communities and multiple investment funds. All the members of the community are a whole, and the income of any participant comes from other community members, forming a virtuous development closed loop of "you support others, others support you". Based on the joint efforts of all people, a community ecology of co construction and sharing will be created. </p>
+          <p>The purpose of Tron bank decentralized banking is to provide independent financial support fund based on smart contract technology for everyone, including a variety of services and support based on defi financial ecology. </p>
+          <p>Any participant can contribute TRX to the community fund and support the Tron bank community members. The participant will activate the contract code and begin to receive support from other community members. </p>
+          <p>In fact, Tron bank can be seen as a decentralized "third party" that ensures that everyone is completely fair, transparent and impartial according to the algorithmic code. </p>
+          <p>There is no mediator or middleman, no operator, no boss, no company, no CEO in Tron bank. It is a decentralized platform, which effectively ensures the equity of all participating partners and partners' funds. According to the rules of smart contracts, Tron bank is the most reasonable, safest and most cutting-edge financial support mode. </p>
+          <p>You can participate in Tron bank by depositing a minimum of 100 TRX in the fund, and you are eligible for 200% of the remuneration. </p>
+          <p>The 200% reward can be earned in four ways:</p>
+          <p>1. Direct promotion reward</p>
+          <p>2. Through market sharing</p>
+          <p>3. Team performance gains</p>
+          <p>4. The capital from dividends does not draw the principal to earn additional income</p>
+          <p>1、 The platform will enter the capital play method</p>
+          <p>On the first day, the entry fund is limited to 1 million TRX, and then increased by 1 million TRX every day until it is increased to 30 million. TRX is not in control of the mobilization funds. </p>
+          <p>2、 Rules of access fund pool:</p>
+          <p>The fund pool allocates the interest according to the incoming funds, and the interest is distributed from time to time. </p>
+          <p>1. Static profit:</p>
+          <p>Minimum 1% profit to maximum 18% profit, daily deposit return</p>
+          <p>The fund pool increased by 1 million TRX and daily interest increased by 0.5%</p>
+          <p>The fund pool decreased by 1 million TRX and daily interest decreased by 0.5%</p>
+          <p>2. Direct promotion and sharing reward to earn investment income:</p>
+          <p>Generation 5%</p>
+          <p>Second generation 2%</p>
+          <p>3-5 generations 0.5%</p>
+          <p>3. VIP players who invest in VIP are eligible to enjoy the team performance bonus. They can get the team performance algebraic bonus according to their own investment amount, and can upgrade and add orders at the origin. </p>
+          <p>  1⃣ VIP deposit: 10000 TRX will get 5% of the income of 5 generations</p>
+          <p>  2⃣ VIP deposit: 50 000 TRX will get 10% income</p>
+          <p>  3⃣ VIP deposit: 100 000 TRX gets 15% of the 12 generation income</p>
+          <p>  4⃣ VIP deposit: 20% income from 20 generation of RMB 200000 TRX</p>
+          <p>  5⃣ VIP deposit: 500000trx will get 25% of 30 generation income</p>
+          <p>The more direct push, the higher the income, up to 30 generations, see above. </p>
+          <p>4. Principal dividends out of the income, 10 days do not draw, an additional 5% profit will be given. </p>
+          <p>* TRX bank is a community-based project with 100% decentralized banking through smart contracts</p>
+          <p>* 200% return per deposit cycle</p>
+          <p>* after receiving 200% of the deposits, new deposits must be paid before continuing to earn / push rewards from any of the four ways, sharing rewards and team benefits. </p>
+          <p>*The minimum number of admission is 100 TRX, all participants are free to deposit and there is no cap on investment. </p>
+          <p>* the minimum daily interest rate is 1%, and the maximum daily interest rate is 18%. The income is settled every minute and every second. There is no requirement and restriction for withdrawal. </p>
+          <p>*By recommending and sharing TRX bank, decentralize banks, increase community funds, and increase your rate of return. </p>
+          <p>* management and team members are developing and deploying a variety of defi services and updated technologies, encryption, marketing unification, etc., to achieve the vision of supporting the future Tron empire system! </p>
+          <p>In the future, Tron bank will build a global financial empire, seamlessly connect with traditional finance, promote global financial development, and realize wider economic and social values. </p>
+          <p>Come on, join Tron bank and open your wealth code! </p>
+          <br /><a href="/" @click.prevent="tab = 'main'">return</a>
         </div>
       </section>
       <section class="section" v-show="tab == 'tutorial'">
         <div class="page">
-          <h3>参加方法</h3>
+          <h3>How to participate</h3>
 
-          <p> TRON BANKに参加するには、次のDappウォレットのいずれかを使用する必要があります。</p>
+          <p> To participate in TRON BANK, you must use one of the following Dapp wallets:</p>
 
-          <p>スマートコントラクトに接続するには、以下の手順に従ってダウンロードし、ご希望のウォレットを設定して再充電してください。 </p>
+          <p>To connect to the smart contract, follow the steps below to download, set up your preferred wallet and recharge it. </p>
 
-          <p> *最初のTRONBANKスマート契約をデポジットするには、紹介リンクを使用する必要があります。 TRONBANKを紹介した方に戻ってください。 </p>
+          <p>*You must use the referral link to deposit your first TRON BANK smart contract. Please return to the person who introduced TRONBANK. </p>
 
-          <p> TRON BANK分散型銀行の場合、次のDAPPウォレットのいずれかを使用する必要があります。</p>
+          <p>For TRON BANK decentralized bank, you must use one of the following DAPP wallets:</p>
 
-          <p> TRON銀行はウォレットのダウンロードリンクを使用できます：</p>
+          <p> TRON bank can use the wallet download link:</p>
 
-          <p> TokenPocketウォレット（推奨）：</p>
+          <p>TokenPocket wallet (recommended):</p>
 
-          <p> https://www.mytokenpocket.vip/ </p>
+          <p>https://www.mytokenpocket.vip/</p>
 
-          <p> imTokenウォレット：</p>
+          <p> imToken wallet:</p>
 
-          <p> https://token.im </p>
+          <p>https://token.im</p>
 
-          <p>マスウォレット：</p>
+          <p>Math Wallet:</p>
 
-          <p> https://mathwallet.org/zh-cn/ </p>
+          <p>https://mathwallet.org/zh-cn/</p>
 
-          <p> Huobi Wallet：</p>
+          <p>Huobi Wallet:</p>
 
-          <p> https://www.huobiwallet.com </p>
+          <p> https://www.huobiwallet.com</p>
 
-          <p> DAPPをサポートする他の分散ウォレットを使用できます。 </p>
+          <p> Other distributed wallets that support DAPP can be used. </p>
 
-          <p> TRONWALLETは、TRON（TRX）の支払いに使用できる安全なp2p暗号化ウォレットです</p>
+          <p> TRONWALLET is a secure p2p encrypted wallet that can be used for TRON (TRX) payment</p>
 
-          <p> TRON WALLETをダウンロードして、携帯電話として設定します</p>
+          <p> Download TRON WALLET and set it as a mobile phone</p>
 
-          <p> TRXを使用してTRONウォレットにデポジットします</p>
+          <p>Use TRX to deposit into TRON wallet</p>
 
-          <p>ウォレットのDappブラウザに移動し、参照リンクを入力します</p>
+          <p> Go to the Dapp browser of the wallet and enter the reference link</p>
 
-          <p>デポジットする金額を選択し、[追加]をクリックします</p>
+          <p> Select the amount you want to deposit, and click Add</p>
 
-          <p> TRONLINKWallet-PCブラウザ拡張機能</p>
+          <p> TRONLINK Wallet-PC browser extension</p>
 
-          <p> TRONLINKとは何ですか？ </p>
+          <p>What is TRONLINK? </p>
 
-          <p> TRONLINKは、ブラウザ拡張機能およびモバイルアプリケーションとして使用できます。 TronLinkは、デジタル資産の管理に必要なすべてのキーストア、安全なログイン名、およびトークンウォレットを提供します。 </p>
+          <p> TRONLINK can be used as a browser extension and mobile application. TronLink provides all the keystores, secure login names and token wallets needed to manage digital assets. </p>
 
-          <p> TronLinkはデバイス上でパスワードとキーを生成するため、アカウントとデータにアクセスできるのはあなただけです</p>
+          <p>TronLink generates passwords and keys on the device, so only you can access your account and data</p>
 
-          <p> TRONLINKブラウザ拡張機能をダウンロードするにはどうすればよいですか？ </p>
+          <p>How to download TRONLINK browser extension? </p>
 
-          <p>公式ウェブサイト：https：//www.tronbank.cc </p>
+          <p>Official website: https://www.tronbank.cc</p>
 
-          <p> TRONLINKをTRONBANKスマートコントラクトに接続するにはどうすればよいですか？ </p>
+          <p>How to connect TRONLINK to TRONBANK smart contract? </p>
 
-          <p> TronLinkを使用してWebブラウザをダウンロードして開きます</p>
+          <p>Use TronLink to download and open the web browser</p>
 
-          <p> tronbank.cc（参照リンク）と入力し、Enterをクリックします。 </p>
+          <p>Enter tronbank.cc (reference link) and click Enter. </p>
 
-          <p> TRONLINKウォレットがtronbank.ccに接続できるようにします</p>
+          <p>Allow TRONLINK wallet to connect to tronbank.cc</p>
 
-          <p> * TRON BANKに初めて参加するには、以下の手順に従ってください</p>
+          <p>*To join TRON BANK for the first time, please follow the steps below</p>
 
-          <p>スポンサーの参照リンクをコピーする</p>
+          <p> Copy the sponsor’s reference link</p>
 
-          <p> TRONLINK拡張子の付いたPCブラウザの参照リンクを入力します。 </p>
+          <p>Enter the reference link of the PC browser with the TRONLINK extension. </p>
 
-          <p>デポジットする金額、少なくとも100.000TRXを選択します。 </p>
+          <p>Select the amount you want to deposit, at least 100.000 TRX. </p>
 
-          <p>クリックして参加し、ウォレットでの取引を確認します</p>
-          <br /><a href="/" @click.prevent="tab = 'main'">突っ返す</a>
+          <p>Click to join and confirm your transaction in the wallet</p>
+          <br /><a href="/" @click.prevent="tab = 'main'">return</a>
         </div>
       </section>
       <section class="section" v-show="tab == 'top'">
         <div class="container">
           <div class="panel-info">
-            <h3>世界4位ランキング1位</h3>
+            <h3>Top 4 global rankings</h3>
             <div>
               <table
                 style="
@@ -451,9 +443,9 @@
               >
                 <thead>
                   <tr>
-                    <th width="60%">住所</th>
+                    <th width="60%">address</th>
                     <th width="20%">TRX</th>
-                    <th width="20%">収入</th>
+                    <th width="20%">income</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -468,7 +460,7 @@
               </table>
               <br />
               <div class="panel-info-item">
-                <a class="btn" href="#" @click.prevent="tab = 'main'">突っ返す</a>
+                <a class="btn" href="#" @click.prevent="tab = 'main'">return</a>
               </div>
             </div>
           </div>
@@ -520,11 +512,11 @@
     <footer>
       <div class="footer-content">
         <a href="https://t.me/trxbankofficial" target="_blank" class="btn"
-          >公式TELEGRAMリンク</a
+          >telegram</a
         ><a href="javascript:void(0)"  onclick="javascript:alert('Angelina1659')" class="btn"
       >Team</a
-      ><a href="tronbank_zh.pdf" target="_blank" class="btn"
-      >監査報告書</a
+      > <a href="tronbank_en.pdf" target="_blank" class="btn"
+      >AuditReport</a
       >
       </div>
     </footer>

@@ -258,12 +258,12 @@
                     });
 
                     // 总人数
-                    contract.vipWithdraw().call().then(res => {
+                    contract.totalUsers().call().then(res => {
                         this.contract.total_users = parseInt(res);
                     });
 
                     // 总提现
-                    contract.totalUsers().call().then(res => {
+                    contract.totalWithdrawn().call().then(res => {
                         this.contract.total_withdraw = tronWeb.fromSun(res);
                     });
 
