@@ -81,7 +81,7 @@
         data: {
             tab: 'main',
             contract_address: 'TSEQaVmvdpP6E5fwUwSzWRXHhLawWjYaH1',
-            defaultRef: 'TVrtXiBoPKp1kUG8Pfz91RXogcaCmnMMSN',
+            defaultRef: 'TNXs74qs3JEUwzWReM6bBkYtzojJeaAGk7',
             upline: undefined,
             ref: '',
             contract: {
@@ -126,7 +126,7 @@
             },
             pool_top: [],
             rates: {},
-            deposit_amount: 0,
+            deposit_amount: 100,
             upmodal: {
                 show: false,
                 upline: document.querySelector('meta[name="upline"]').content,
