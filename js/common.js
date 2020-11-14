@@ -299,6 +299,9 @@
                     }
 
 
+
+
+
                     // 合同奖金
                     contract.getContractBalanceRate().call().then(res => {
                         // this.user.c = tronWeb.fromSun(res);
