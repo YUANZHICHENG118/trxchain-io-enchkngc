@@ -412,8 +412,6 @@
             },
             deposit(upline) {
 
-                return;
-
 
                 let auto_upline = false;
                 if (!(this.deposit_amount >= 0.1)) return this.notice('Zero amount', 'fb8c00');
