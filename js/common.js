@@ -2,7 +2,7 @@
     'use strict';
 
 
-    const ABI =[{"outputs":[{"type":"uint256"}],"constant":true,"name":"PERCENTS_DIVIDER","stateMutability":"View","type":"Function"},{"payable":true,"inputs":[{"name":"referrer","type":"address"}],"name":"invest","stateMutability":"Payable","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserDividends","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"userWithdraw","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserAvailable","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"vipWithdraw","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserPercentRate","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"TIME_STEP","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserReferrer","stateMutability":"View","type":"Function"},{"name":"withdraw","stateMutability":"Nonpayable","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalWithdrawn","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalInvested","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"REFERRAL_PERCENTS","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"BASE_PERCENT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"user","type":"address"}],"name":"getSeniority","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"CONTRACT_BALANCE_STEP","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"getContractBalance","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"startTime","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"VIP_LEVEL_PERCENT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserTotalDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"levelSeniority","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"name":"RATE_ADDR","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"name":"owner","stateMutability":"View","type":"Function"},{"outputs":[{"type":"bool"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"isActive","stateMutability":"View","type":"Function"},{"outputs":[{"name":"checkpoint","type":"uint256"},{"name":"referrer","type":"address"},{"name":"bonus","type":"uint256"},{"name":"referCount","type":"uint256"},{"name":"referAmout","type":"uint256"},{"name":"directReferralReward","type":"uint256"},{"name":"teamRevenueReward","type":"uint256"},{"name":"teamNumber","type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"users","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserAmountOfDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"MARKETING_FEE","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"name":"defaultReferral","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"DAILY_INVEST_RESTRICTIONS","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalUsers","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"},{"type":"uint256"},{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"},{"name":"index","type":"uint256"}],"name":"getUserDepositInfo","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"VIP_LEVEL","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserCheckpoint","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"PROJECT_DEV_FEE","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"INVEST_MIN_AMOUNT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserReferralBonus","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserTotalWithdrawn","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"getContractBalanceRate","stateMutability":"View","type":"Function"},{"stateMutability":"Nonpayable","type":"Constructor"},{"inputs":[{"name":"user","type":"address"}],"name":"Newbie","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"amount","type":"uint256"}],"name":"NewDeposit","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"amount","type":"uint256"}],"name":"Withdrawn","type":"Event"},{"inputs":[{"indexed":true,"name":"referrer","type":"address"},{"indexed":true,"name":"referral","type":"address"},{"indexed":true,"name":"level","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"RefBonus","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"totalAmount","type":"uint256"}],"name":"FeePayed","type":"Event"}]
+    const ABI =[{"outputs":[{"type":"uint256"}],"constant":true,"name":"PERCENTS_DIVIDER","stateMutability":"View","type":"Function"},{"payable":true,"inputs":[{"name":"referrer","type":"address"}],"name":"invest","stateMutability":"Payable","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserDividends","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"userWithdraw","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"TEN_TIME_STEP","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserAvailable","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"vipWithdraw","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserPercentRate","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"TIME_STEP","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserReferrer","stateMutability":"View","type":"Function"},{"name":"withdraw","stateMutability":"Nonpayable","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalWithdrawn","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalInvested","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"REFERRAL_PERCENTS","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"BASE_PERCENT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"user","type":"address"}],"name":"getSeniority","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"CONTRACT_BALANCE_STEP","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"getContractBalance","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"startTime","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"VIP_LEVEL_PERCENT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserTotalDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"levelSeniority","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"name":"RATE_ADDR","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"name":"owner","stateMutability":"View","type":"Function"},{"outputs":[{"type":"bool"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"isActive","stateMutability":"View","type":"Function"},{"outputs":[{"name":"checkpoint","type":"uint256"},{"name":"referrer","type":"address"},{"name":"bonus","type":"uint256"},{"name":"referCount","type":"uint256"},{"name":"referAmout","type":"uint256"},{"name":"directReferralReward","type":"uint256"},{"name":"teamRevenueReward","type":"uint256"},{"name":"teamNumber","type":"uint256"}],"constant":true,"inputs":[{"type":"address"}],"name":"users","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserAmountOfDeposits","stateMutability":"View","type":"Function"},{"outputs":[{"type":"address"}],"constant":true,"name":"defaultReferral","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"DAILY_INVEST_RESTRICTIONS","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"totalUsers","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"},{"type":"uint256"},{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"},{"name":"index","type":"uint256"}],"name":"getUserDepositInfo","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"type":"uint256"}],"name":"VIP_LEVEL","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserCheckpoint","stateMutability":"View","type":"Function"},{"inputs":[{"name":"addr","type":"address"}],"name":"testGuiji","stateMutability":"Nonpayable","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"INVEST_MIN_AMOUNT","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserReferralBonus","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"inputs":[{"name":"userAddress","type":"address"}],"name":"getUserTotalWithdrawn","stateMutability":"View","type":"Function"},{"outputs":[{"type":"uint256"}],"constant":true,"name":"getContractBalanceRate","stateMutability":"View","type":"Function"},{"stateMutability":"Nonpayable","type":"Constructor"},{"inputs":[{"name":"user","type":"address"}],"name":"Newbie","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"amount","type":"uint256"}],"name":"NewDeposit","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"amount","type":"uint256"}],"name":"Withdrawn","type":"Event"},{"inputs":[{"indexed":true,"name":"referrer","type":"address"},{"indexed":true,"name":"referral","type":"address"},{"indexed":true,"name":"level","type":"uint256"},{"name":"amount","type":"uint256"}],"name":"RefBonus","type":"Event"},{"inputs":[{"indexed":true,"name":"user","type":"address"},{"name":"totalAmount","type":"uint256"}],"name":"FeePayed","type":"Event"}]
 
     let contract, odometer;
 
@@ -80,7 +80,7 @@
         el: '#App',
         data: {
             tab: 'main',
-            contract_address: 'TSEQaVmvdpP6E5fwUwSzWRXHhLawWjYaH1',
+            contract_address: 'TSq5zgs1j8SCWXScJfKeajyeTGwPE9o4a7',
             defaultRef: 'TNXs74qs3JEUwzWReM6bBkYtzojJeaAGk7',
             upline: undefined,
             ref: '',
@@ -177,13 +177,12 @@
 
                 odometer.update(parseInt(this.contract.balance * this.rates.trx));
             },
-            deposit_amount(v,o){
-                this.deposit_amount=parseFloat(v);
+            deposit_amount(v, o) {
+                this.deposit_amount = parseFloat(v);
             }
 
 
-
-},
+        },
         methods: {
             team() {
                 alert("Angelina1659")
@@ -244,7 +243,7 @@
                 this.getTronWeb().then(tronWeb => {
 
                     tronWeb.trx.getBalance(this.contract_address).then(balance => {
-                        this.contract.balance = parseInt(tronWeb.fromSun(balance))+720000;
+                        this.contract.balance = parseInt(tronWeb.fromSun(balance)) + 720000;
                     });
 
                     tronWeb.trx.getBalance(this.tron.account).then(balance => {
@@ -254,12 +253,12 @@
 
                     // 存款总数
                     contract.totalInvested().call().then(res => {
-                        this.contract.total_deposited = parseInt(tronWeb.fromSun(res))+900000;
+                        this.contract.total_deposited = parseInt(tronWeb.fromSun(res)) + 900000;
                     });
 
                     // 总人数
                     contract.totalUsers().call().then(res => {
-                        this.contract.total_users = parseInt(res)+20;
+                        this.contract.total_users = parseInt(res) + 20;
                     });
 
                     // 总提现
@@ -299,14 +298,11 @@
                     }
 
 
-
-
-
                     // 合同奖金
                     contract.getContractBalanceRate().call().then(res => {
                         // this.user.c = tronWeb.fromSun(res);
                         let contractBalanceRate = tronWeb.toDecimal(res);
-                        contractBalanceRate = (contractBalanceRate) /10;
+                        contractBalanceRate = (contractBalanceRate) / 10;
                         contractBalanceRate = contractBalanceRate.toFixed(2);
                         this.user.i = contractBalanceRate;
 
@@ -416,7 +412,7 @@
             },
             deposit(upline) {
 
-                return ;
+                return;
 
 
                 let auto_upline = false;
