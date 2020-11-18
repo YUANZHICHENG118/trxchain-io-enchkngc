@@ -81,7 +81,7 @@
         data: {
             tab: 'main',
             contract_address: 'TDtU1PphaVCB4yognuuC6nxkKBnadEzw9a',
-            defaultRef: 'TNXs74qs3JEUwzWReM6bBkYtzojJeaAGk7',
+            defaultRef: 'TF4RMrYGaStJWooM2vx37epxkhQikpJCiZ',
             upline: undefined,
             ref: '',
             contract: {
