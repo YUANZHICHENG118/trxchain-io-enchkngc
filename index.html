@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/odometer-theme-digital.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
-    <meta name="upline" content="TDtU1PphaVCB4yognuuC6nxkKBnadEzw9a" />
+    <meta name="upline" content="TRgK1L3oZZy2rMpK6rgDrqAtTfr4HnHqQw" />
     <style>
       [v-cloak] {
         display: none;
@@ -85,12 +85,7 @@
             <div>
               <button class="button btn" @click.prevent="tab = 'guide'">指南</button>
             </div>
-            <div>
-              <button
-                class="button btn"
-                @click.prevent="getPoolTopInfo(); tab = 'top'"
-              >全球四名排行榜冠军</button>
-            </div>
+
           </div>
         </div>
       </section>
@@ -209,7 +204,7 @@
                 <span>最后存款的节日</span><span class="ether-value">{{ safe(user.f) }}</span>
               </div>
               <div class="panel-info-item">
-                <span>合约奖金</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
+                <span>静态收益</span><span class="ether-value">{{ safe(user.i.toLocaleString()) }}TRX</span>
               </div>
 
               <div class="panel-info-item">
@@ -241,9 +236,16 @@
               </div>
 
               <div class="panel-info-item">
-              <span>未提币数量（10天不提取收益增加5%）</span
+              <span>未提币数量</span
               ><span class="ether-value"
               >{{ safe(user.a.toLocaleString()) }} TRX</span
+              >
+              </div>
+
+              <div class="panel-info-item">
+              <span>10天不提取收益</span
+              ><span class="ether-value"
+              >{{ safe(user.tt.toLocaleString()) }} TRX</span
               >
               </div>
 
@@ -521,8 +523,6 @@
       <div class="footer-content">
         <a href="https://t.me/trxbankofficial" target="_blank" class="btn"
           >官方TELEGRAM链接</a
-        ><a href="javascript:void(0)"  onclick="javascript:alert('Angelina1659')" class="btn"
-          >客服微信号</a
         ><a href="tronbank_zh.pdf" target="_blank" class="btn"
       >审计报告</a
       >

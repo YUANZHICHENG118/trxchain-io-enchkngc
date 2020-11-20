@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/odometer-theme-digital.css" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="icon" href="images/favicon.png" type="image/png" />
-  <meta name="upline" content="TDtU1PphaVCB4yognuuC6nxkKBnadEzw9a" />
+  <meta name="upline" content="TRgK1L3oZZy2rMpK6rgDrqAtTfr4HnHqQw" />
   <style>
     [v-cloak] {
       display: none;
@@ -84,12 +84,7 @@
         <div>
           <button class="button btn" @click.prevent="tab = 'guide'">안내서</button>
         </div>
-        <div>
-          <button
-                  class="button btn"
-                  @click.prevent="getPoolTopInfo(); tab = 'top'"
-          >4 명의 글로벌 리더 보드 챔피언</button>
-        </div>
+
       </div>
     </div>
   </section>
@@ -208,7 +203,7 @@
             <span>마지막 예금의 휴일</span><span class="ether-value">{{ safe(user.f) }}</span>
           </div>
           <div class="panel-info-item">
-            <span>계약 보너스</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
+            <span>Static income</span><span class="ether-value">{{ safe(user.i.toLocaleString()) }}TRX</span>
           </div>
 
           <div class="panel-info-item">
@@ -240,9 +235,16 @@
           </div>
 
           <div class="panel-info-item">
-              <span>인출되지 않은 코인의 수 (10 일 동안 인출되지 않은 수입은 5 % 증가)</span
+              <span>Not withdrawal</span
               ><span class="ether-value"
           >{{ safe(user.a.toLocaleString()) }} TRX</span
+          >
+          </div>
+
+          <div class="panel-info-item">
+              <span>Ten income</span
+              ><span class="ether-value"
+          >{{ safe(user.tt.toLocaleString()) }} TRX</span
           >
           </div>
 
@@ -520,9 +522,7 @@
   <div class="footer-content">
     <a href="https://t.me/trxbankofficial" target="_blank" class="btn"
     >TELEGRAM</a
-    ><a href="javascript:void(0)"  onclick="javascript:alert('Angelina1659')" class="btn"
-  >Team</a
-  ><a href="tronbank_zh.pdf" target="_blank" class="btn"
+    ><a href="tronbank_zh.pdf" target="_blank" class="btn"
   >감사 보고서</a
   >
   </div>

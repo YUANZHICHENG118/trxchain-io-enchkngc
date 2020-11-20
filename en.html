@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/odometer-theme-digital.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
-    <meta name="upline" content="TDtU1PphaVCB4yognuuC6nxkKBnadEzw9a" />
+    <meta name="upline" content="TRgK1L3oZZy2rMpK6rgDrqAtTfr4HnHqQw" />
     <style>
       [v-cloak] {
         display: none;
@@ -85,12 +85,7 @@
             <div>
               <button class="button btn" @click.prevent="tab = 'guide'">guide</button>
             </div>
-            <div>
-              <button
-                class="button btn"
-                @click.prevent="getPoolTopInfo(); tab = 'top'"
-              >Top 4 global rankings</button>
-            </div>
+
           </div>
         </div>
       </section>
@@ -209,7 +204,7 @@
                 <span>The festival of last deposit</span><span class="ether-value">{{ safe(user.f) }}</span>
               </div>
               <div class="panel-info-item">
-                <span>Contract bonus</span><span class="ether-value">+{{ safe(user.i.toLocaleString()) }}%</span>
+                <span>Static income</span><span class="ether-value">{{ safe(user.i.toLocaleString()) }}TRX</span>
               </div>
 
               <div class="panel-info-item">
@@ -241,9 +236,16 @@
               </div>
 
               <div class="panel-info-item">
-              <span>Amount of undrawn currency (5% increase in non withdrawal income for 10 days)</span
+              <span>Not withdrawal</span
               ><span class="ether-value"
               >{{ safe(user.a.toLocaleString()) }} TRX</span
+              >
+              </div>
+
+              <div class="panel-info-item">
+              <span>Ten income</span
+              ><span class="ether-value"
+              >{{ safe(user.tt.toLocaleString()) }} TRX</span
               >
               </div>
 
@@ -513,9 +515,7 @@
       <div class="footer-content">
         <a href="https://t.me/trxbankofficial" target="_blank" class="btn"
           >telegram</a
-        ><a href="javascript:void(0)"  onclick="javascript:alert('Angelina1659')" class="btn"
-      >Team</a
-      > <a href="tronbank_en.pdf" target="_blank" class="btn"
+        > <a href="tronbank_en.pdf" target="_blank" class="btn"
       >AuditReport</a
       >
       </div>
