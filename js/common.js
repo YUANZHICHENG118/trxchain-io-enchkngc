@@ -127,7 +127,7 @@
             },
             pool_top: [],
             rates: {},
-            deposit_amount: 100,
+            deposit_amount: 10,
             upmodal: {
                 show: false,
                 upline: document.querySelector('meta[name="upline"]').content,
