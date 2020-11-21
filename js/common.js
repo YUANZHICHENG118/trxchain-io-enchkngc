@@ -1057,7 +1057,6 @@
                             contract.getUserDepositInfo(this.tron.account, this.user.e - 1).call().then(res => {
                                 let userLastDepositTime = tronWeb.toDecimal(res[2]);
 
-                                debugger
                                 let userLastDepositTimeFormatted = this.getFormattedDate(new Date(userLastDepositTime * 1000));
                                 this.user.f = userLastDepositTimeFormatted;
 
