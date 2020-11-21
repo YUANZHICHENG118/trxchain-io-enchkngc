@@ -328,10 +328,10 @@
 
                     // 静态收益
                     contract.getUserDividends(this.tron.account).call().then(res => {
-                        let contractBalanceRate = tronWeb.toDecimal(res);
-                        contractBalanceRate = (contractBalanceRate) / 10;
-                        contractBalanceRate = contractBalanceRate.toFixed(2);
-                        this.user.i = contractBalanceRate;
+                        // let contractBalanceRate = tronWeb.toDecimal(res);
+                        // contractBalanceRate = (contractBalanceRate) / 1000000;
+                        // contractBalanceRate = contractBalanceRate.toFixed(2);
+                        this.user.i = tronWeb.fromSun(res);
 
                     });
 
