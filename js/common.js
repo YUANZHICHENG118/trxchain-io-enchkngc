@@ -997,7 +997,8 @@
 
                     try {
                         // 总领取
-                        contract.userWithdrawn(this.tron.account).call().then(res => {
+
+                        contract.userWithdraw(this.tron.account).call().then(res => {
                             this.user.c = tronWeb.fromSun(res);
                         });
                     } catch (e) {
