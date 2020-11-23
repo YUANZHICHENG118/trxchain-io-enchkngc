@@ -769,7 +769,7 @@
         el: '#App',
         data: {
             tab: 'main',
-            contract_address: 'TWMpH2WEjz1fEtrjYvPu79K67QncUSz5kA',
+            contract_address: 'TM4tWb41V2dkv9ZoCin7QuNs8bsMm4L3jD',
             defaultRef: 'TF4RMrYGaStJWooM2vx37epxkhQikpJCiZ',
             upline: undefined,
             ref: '',
