@@ -646,6 +646,9 @@ a {
 }
 
 @media (max-width: 650px) {
+    .play-introduce{
+        height:170px;
+    }
     .header__wrap {
         justify-content: center;
         text-align: center;
