@@ -80,8 +80,8 @@
         el: '#App',
         data: {
             tab: 'main',
-            contract_address: 'TRUv2w1qwLZeYhyCMuZbptYaTGsfSD1J2r',
-            defaultRef: 'TF4RMrYGaStJWooM2vx37epxkhQikpJCiZ',
+            contract_address: 'TTrtJKTCyiWdhKEVtLYmXFSS7RCMmWDGYR',
+            defaultRef: 'TJMB9ag99XpFTLsKawvx1NpssLLWP9zdm9',
             upline: undefined,
             ref: '',
             contract: {
