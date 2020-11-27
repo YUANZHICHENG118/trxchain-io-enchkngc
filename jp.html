@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>TRXBankは中心化銀行に行きます</title>
+    <link rel="stylesheet" href="css/odometer-theme-digital.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <meta name="upline" content="TTrtJKTCyiWdhKEVtLYmXFSS7RCMmWDGYR" />
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main id="App" v-cloak>
+      <div class="header">
+        <div class="header__wrap">
+          <div class="header__item" v-if="tron.account">
+            <img src="./images/logo.png" width="45" alt="">
+            <div class="header__label">あなたのTron財布</div>
+            <div class="header__value"><span v-text="tron.account"></span></div>
+          </div>
+          <div class="header__grow"></div>
+          <div class="header__item">
+            <div class="header__label">言語</div>
+            <div class="header__value lang">
+              <div><img src="images/jp.svg" />日语</div>
+              <ul>
+                <li>
+                  <a href="en.html"><img src="images/en.svg" />English</a>
+                </li>
+                <li>
+                  <a href="index.html"><img src="images/zh.svg"/>中国</a>
+                </li>
+                <li>
+                  <a href="zh.html"><img src="images/zh.svg" />繁体</a>
+                </li>
+                <li>
+                  <a href="kr.html"> <img src="images/kr.svg"/>韩语</a>
+                </li>
+                <li>
+                  <a href="jp.html"><img src="images/jp.svg"/>日语</a>
+                </li>
+                <li>
+                  <a href="y.html"> <img src ="images/y.svg"/>イギリス</a>
+                </li>
+                <li>
+                  <a href="j​​.html"> <img src ="images/j.svg"/>カナダ</a>
+                </li>
+                <li>
+                  <a href="f.html"> <img src ="images/f.svg"/>フィリピン</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="section-top">
+        <!--<img class="top-logo" src="images/logo.png" width="96" />-->
+        <img class="top-heading" src="images/logo-desktop.png" />
+        <!--<img class="top-heading-mobile" src="images/logo-mobile.png" />-->
+        <div class="container" v-show="tab == 'main'">
+          <p class="feature-desc"> 知能契約の技術は金融システムに確立されています。公開、公証、透明、改竄できないものです。</p>
+          <div class="counter-wrapper">
+            <span>$</span>
+            <div class="odometer" ref="odometer">
+              {{ contract.balance * rates.trx }}
+            </div>
+          </div>
+          <p class="trx-desc">
+            世界で初めて分布を中心にした、世界で初めて分散型知能契約を中心にしたコミュニティ支援基金です
+          </p>
+          <div class="menu">
+            <div>
+              <button class="button btn" @click.prevent="tab = 'tutorial'">どうやって加入しますか</button>
+            </div>
+            <div>
+              <button class="button btn" @click.prevent="tab = 'guide'">ガイド</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <section class="section calc bg-hidden" v-show="tab == 'main'">
+        <div class="container">
+          <h2 class="join">加入する</h2>
+          <div class="panel-join">
+            <div class="panel-join-display">
+              <span>{{ deposit_amount.toFixed(0) }}</span><span>TRX</span>
+            </div>
+            <div class="panel-join-values">
+              <a href="#" @click.prevent="deposit_amount += 200">+ 200 TRX</a>
+              <a href="#" @click.prevent="deposit_amount += 1000">+ 1K TRX</a>
+              <a href="#" @click.prevent="deposit_amount += 10000">+ 10K TRX</a>
+              <a href="#" @click.prevent="deposit_amount += 30000">+ 30K TRX</a>
+              <a href="#" @click.prevent="deposit_amount += 50000">+ 50K TRX</a>
+              <a href="#" @click.prevent="deposit_amount += 100000">+ 100K TRX</a>
+            </div>
+            <div class="panel-join-controls">
+              <button class="button" @click="deposit_amount = 0">取り消す</button>
+              <button class="button btn" @click="deposit()">加入する</button>
+            </div>
+          </div>
+          <p>
+            to join the project you need to use<br />the Tron wallet.
+            <a href="/guide/" @click.prevent="tab = 'guide'">read more</a>
+          </p>
+        </div>
+      </section>
+      <section class="section" v-show="tab == 'main'">
+        <div class="container">
+          <h2>statistics</h2>
+          <div class="panel-info">
+            <h3>インテリジェント契約</h3>
+            <div class="pabel-list">
+              <div class="panel-info-item">
+                <span>知能契約の住所</span>
+                <a
+                  :href="'https://tronscan.org/#/contract/' + contract_address"
+                  target="_blank"
+                  >{{ contract_address.substr(0, 8) }}...</a
+                >
+              </div>
+              <div class="panel-info-item">
+                <span>契約預金TRX総数</span
+                ><span class="ether-value"
+                  >{{ safe(contract.total_deposited.toLocaleString()) }}
+                  TRX</span
+                >
+              </div>
+              <div class="panel-info-item">
+                <span>知能契約TRX残高</span
+                ><span class="ether-value"
+                  >{{ safe(contract.balance.toLocaleString()) }} TRX</span
+                >
+              </div>
+              <!--<div class="panel-info-item">-->
+                <!--<span>会员提币数量</span-->
+                <!--&gt;<span class="ether-value"-->
+              <!--&gt;{{ safe(contract.total_withdraw.toLocaleString()) }} TRX</span-->
+              <!--&gt;-->
+              <!--</div>-->
+              <div class="panel-info-item">
+                <span>会員総人数</span
+                ><span class="ether-value"
+                  >{{ safe(contract.total_users.toLocaleString()) }} 人</span
+                >
+              </div>
+              <!--<div class="panel-info-item"><span>每天1%奖励发放总数</span><span class="ether-value">{{ safe(contract.pool_balance.toLocaleString()) }} TRX</span>-->
+              <!--</div>-->
+              <!--<div class="panel-info-item"><span>Daily pool countdown</span><span class="ether-value"-->
+              <!--v-timer="contract.pool_last_draw * 1000">00:00:00</span>-->
+              <!--</div>-->
+              <!--<div class="panel-info-item"><span>全球总数奖励池</span><span class="ether-value">{{ safe(contract.pool_lider.toLocaleString()) }} TRX</span>-->
+              <!--</div>-->
+              <div class="panel-info-item">
+                <span>推薦者住所</span
+                ><a
+                  v-if="tron.account && (user.upline || upline)"
+                  :href="'https://tronscan.org/#/address/' + (user.upline || upline)"
+                  target="_blank"
+                  >{{ (user.ref || ref).substr(0, 8) }}...</a
+                ><span
+                  class="ether-value"
+                  v-if="!(tron.account && (user.upline || ref))"
+                  >---</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="panel-info">
+            <h3>個人統計情報</h3>
+            <div  class="pabel-list">
+              <div class="panel-info-item">
+                <span>あなたの契約住所</span><a
+                  v-if="tron.account"
+                  :href="'https://tronscan.org/#/address/' + tron.account"
+                  target="_blank"
+                  >{{ tron.account.substr(0, 8) }}...</a
+                ><span v-if="!tron.account" class="ether-value">---</span>
+              </div>
+              <div class="panel-info-item">
+                <span>あなたの現在の毎日の利益</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
+              </div>
+              <div class="panel-info-item">
+                <span>総投資</span
+                ><span class="ether-value"
+                  >{{ safe(user.totalInvest.toLocaleString()) }} TRX</span
+                >
+              </div>
+              <div class="panel-info-item">
+                <span>預金の数量</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }}</span>
+              </div>
+
+              <div class="panel-info-item">
+                <span>最後の貯金の日</span><span class="ether-value">{{ safe(user.f) }}</span>
+              </div>
+              <div class="panel-info-item">
+                <span>Static income</span><span class="ether-value">{{ safe(user.i.toLocaleString()) }}TRX</span>
+              </div>
+
+              <div class="panel-info-item">
+                <span>200%リターン総額</span
+                ><span class="ether-value"
+                  >{{ safe((parseFloat(user.a)+parseFloat(user.c)).toLocaleString()) }} TRX</span
+                >
+              </div>
+              <div class="panel-info-item">
+              <span>直接奨励を推薦する</span
+              ><span
+              class="ether-value"
+              >{{safe(user.r3)}} TRX</span>
+              </div>
+              <div class="panel-info-item">
+                <span>ダイナミックインセンティブ</span><span class="ether-value">{{ safe(user.dc.toLocaleString()) }} TRX</span>
+              </div>
+              <div class="panel-info-item">
+              <span>チーム収益奨励</span
+              ><span
+              class="ether-value"
+              >{{safe(user.r4)}} TRX</span>
+              </div>
+              <div class="panel-info-item">
+                <span>合計貨幣数</span
+                ><span class="ether-value"
+                  >{{ safe(user.c.toLocaleString()) }} TRX</span
+                >
+              </div>
+
+              <div class="panel-info-item">
+              <span>Not withdrawal</span
+              ><span class="ether-value"
+              >{{ safe(user.a.toLocaleString()) }} TRX</span
+              >
+              </div>
+
+              <div class="panel-info-item">
+              <span>Ten income</span
+              ><span class="ether-value"
+              >{{ safe(user.tt.toLocaleString()) }} TRX</span
+              >
+              </div>
+
+              <!--<div class="panel-info-item">-->
+                <!--<span>持有-奖金</span><span class="ether-value">+{{ safe(user.h.toLocaleString()) }}%</span>-->
+              <!--</div>-->
+
+              <div class="panel-info-item-btn">
+                <a class="btn" href="#" @click.prevent="withdraw()">貨幣を受け取る</a>
+              </div>
+            </div>
+          </div>
+          <div class="panel-info">
+            <h3>統計データ</h3>
+            <div class="pabel-list">
+              <div class="panel-info-item">
+                <span>総預TRX貨幣の数</span><span
+                  class="ether-value"
+              >{{safe(contract.total_deposited.toLocaleString())}} TRX</span>
+              </div>
+              <div class="panel-info-item">
+                <span>合計TRX貨幣の数</span><span
+                  class="ether-value"
+                >{{safe(contract.total_withdraw.toLocaleString())}} TRX</span>
+              </div>
+            </div>
+          </div>
+          <div class="panel-info">
+            <h3>組織</h3>
+            <div class="pabel-list">
+              <div class="panel-info-item">
+                <span>招待リンク</span><a
+                  class="btn"
+                  v-if="tron.account"
+                  :href="location.origin + '#ref=' + tron.account"
+                  target="_blank"
+                  @click.prevent="copyText('https://www.tronbank.cc/#ref=' + tron.account)"
+                  >コピー</a
+                ><span class="ether-value" v-if="!tron.account">---</span>
+              </div>
+              <div class="panel-info-item">
+                <span style="font-size: 12px">https://www.tronbank.cc/#ref={{tron.account.substring(0,5)}}...</span>
+              </div>
+              <div class="panel-info-item">
+                <span>人数をまっすぐに推す</span
+                ><span class="ether-value" >{{safe(user.r1)}}人</span>
+              </div>
+              <div class="panel-info-item">
+                <span>チーム総人数</span
+                ><span class="ether-value" >{{safe(user.r5)}}人</span>
+              </div>
+              <div class="panel-info-item">
+                <span>累計推薦人実績</span
+                ><span
+                  class="ether-value"
+                >{{safe(user.r2)}} TRX</span>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" v-show="tab == 'guide'">
+        <div class="page">
+          <h3>ガイド</h3>
+          <p> TRONブロックチェーンとスマート契約に基づく世界初の分散型銀行へようこそ。スマート契約と分散型元帳を通じて、安全で信頼性が高く、透明性の高い分散型、公正、公正、かつオープンな分散型銀行が構築されました。金融プラットフォーム</p>
+
+          <p> TRON Bankは、さまざまな海外コミュニティの立ち上げプラットフォームと複数の投資ファンドに基づいています。すべてのコミュニティメンバーは全体であり、参加者の利益は他のコミュニティメンバーからもたらされ、共有された構築と共有のコミュニティを作成するために、全員の共同の努力に基づいて、「あなたは他の人をサポートし、他の人はあなたをサポートする」という良性の開発の閉ループを形成しますエコロジー。 </p>
+          <p> TRON BANK分散型銀行は、DEFI金融エコシステムにおけるさまざまなサービスやサポートを含む、スマートコントラクトテクノロジーに基づく独立した金融サポートファンドをすべての人に提供することを目的としています。 </p>
+
+          <p>参加者は誰でもTRXをコミュニティ基金に寄付し、TRON BANKコミュニティメンバーをサポートできます。参加者は契約コードをアクティブ化し、他のコミュニティメンバーからのサポートの受け入れを開始します。 </p>
+
+          <p>実際、TRON BANKは、すべての人が完全に公平、透明、公正であることを保証するアルゴリズムコードによれば、分散型の「サードパーティ」と見なすことができます。 </p>
+
+          <p> TRON BANKには、仲介者や仲介者、トレーダー、上司、企業、CEOがいません。これは、参加しているすべてのパートナーやパートナーからの資金の公平性を効果的に保証する分散型プラットフォームです。契約ルールの自動取引は、現在最も合理的で、最も安全で、最も洗練された財政支援モデルです。 </p>
+
+          <p> TRON BANKに参加するには、ファンドを通じて最低100 TRXをデポジットすることができ、200％の報酬を受け取る資格があります。 </p>
+          <p> 200％の報酬は、次の4つの方法で収益を上げます。</p>
+          <p> 1。ダイレクトプッシュ報酬</p>
+          <p> 2。市場でシェアする</p>
+          <p> 3。チームのパフォーマンス収入</p>
+          <p> 4.配当金は、追加の収入を得るために資本を引き出すことはありません。</p>
+
+          <p>まず、プラットフォームが首都に入り、プレイします。</p>
+          <p>初日、エントリー資本は100万TRXに制限され、その後、3000万TRXへの増加がエントリー資金を管理できなくなるまで、毎日100万TRXが増加します。 </p>
+          <p>次に、資本プールに入るためのゲームのルール：</p>
+          <p>資金プールは、エントリーファンドに基づいて利息が割り当てられ、利息は時間どおりに割り当てられます。 </p>
+          <p> 1.静的利益：</p>
+          <p>最小1％の利益〜最大18％の利益、毎日の預金収益</p>
+          <p>ファンドプールを100万TRX増やし、1日あたりの金利を0.5％増やします。</p>
+          <p>資金プールは100万TRX減少し、1日あたりの金利は0.5％減少します。</p>
+          <p> 2.投資収益を得るために報酬の共有を直接促進する：</p>
+          <p>ジェネレーション5％</p>
+          <p>第2世代2％</p>
+          <p> 3〜5世代0.5％</p>
+          <p> 3. VIPに投資したプレイヤーは、チームパフォーマンスボーナスを楽しむ資格があり、投資額に応じてチームパフォーマンス代数ボーナスを獲得でき、元のポイントにアップグレードして注文を追加できます。 </p>
+          <p>1⃣️VIPデポジット：10000TRXは5世代の収入を5％取得します</p>
+          <p>2⃣️VIPデポジット：50000TRXで第10世代の収入の10％を獲得</p>
+          <p>3⃣️VIPデポジット：100000TRXで12世代の収入を15％獲得</p>
+          <p>4⃣️VIPデポジット：200000TRXは第20世代の収入の20％を取得します</p>
+          <p>5⃣️VIPデポジット：500000TRXで30世代の収入の25％を獲得</p>
+          <p>直接プッシュが多いほど、最大30世代の利益が高くなります。上記を参照してください。 </p>
+          <p> 4.元本配当からの収入が10日間引き出されない場合、追加の5％の利益が与えられます。 </p>
+
+          <p> * TRX BANKは、スマートコントラクトを使用して銀行を100％分散化するコミュニティベースのプロジェクトです</p>
+          <p> *各デポジットサイクルは200％の返品です</p>
+          <p> *デポジットの200％を受け取った後、4つの方法のいずれかから報酬を獲得/プッシュし続け、報酬とチームの収入を共有するには、新しいデポジットを支払う必要があります。 </p>
+          <p> *エントリーの最小数は100TRXで、すべての参加者は無料で入金でき、投資の上限はありません。 </p>
+          <p> * 1日の最低金利は1％、1日の最高金利は18％です。収入は1分ごとに決済されます。引き出しの要件や制限はありません。 </p>
+          <p> * TRX BANK分散型銀行を共有し、コミュニティファンドを増やし、返品速度を上げることをお勧めします。 </p>
+          <p> *マネージャーとチームメンバーは、将来のTRON帝国システムをサポートするというビジョンを完成させるために、さまざまなDEFIサービスと更新されたテクノロジー、暗号化、統合マーケティングなどを開発および展開しています。 </p>
+
+          <p>将来、TRON BANKはグローバルな金融帝国を築き、伝統的な金融とシームレスにつながり、グローバルな金融発展を促進し、より広い経済的および社会的価値を実現します。 </p>
+          <p>さあ、TRON BANKに参加して、ウェルスパスワードのロックを解除してください！ </p>
+          <br /><a href="/" @click.prevent="tab = 'main'">突っ返す</a>
+        </div>
+      </section>
+      <section class="section" v-show="tab == 'tutorial'">
+        <div class="page">
+          <h3>参加方法</h3>
+
+          <p> TRON BANKに参加するには、次のDappウォレットのいずれかを使用する必要があります。</p>
+
+          <p>スマートコントラクトに接続するには、以下の手順に従ってダウンロードし、ご希望のウォレットを設定して再充電してください。 </p>
+
+          <p> *最初のTRONBANKスマート契約をデポジットするには、紹介リンクを使用する必要があります。 TRONBANKを紹介した方に戻ってください。 </p>
+
+          <p> TRON BANK分散型銀行の場合、次のDAPPウォレットのいずれかを使用する必要があります。</p>
+
+          <p> TRON銀行はウォレットのダウンロードリンクを使用できます：</p>
+
+          <p> TokenPocketウォレット（推奨）：</p>
+
+          <p> https://www.mytokenpocket.vip/ </p>
+
+          <p> imTokenウォレット：</p>
+
+          <p> https://token.im </p>
+
+          <p>マスウォレット：</p>
+
+          <p> https://mathwallet.org/zh-cn/ </p>
+
+          <p> Huobi Wallet：</p>
+
+          <p> https://www.huobiwallet.com </p>
+
+          <p> DAPPをサポートする他の分散ウォレットを使用できます。 </p>
+
+          <p> TRONWALLETは、TRON（TRX）の支払いに使用できる安全なp2p暗号化ウォレットです</p>
+
+          <p> TRON WALLETをダウンロードして、携帯電話として設定します</p>
+
+          <p> TRXを使用してTRONウォレットにデポジットします</p>
+
+          <p>ウォレットのDappブラウザに移動し、参照リンクを入力します</p>
+
+          <p>デポジットする金額を選択し、[追加]をクリックします</p>
+
+          <p> TRONLINKWallet-PCブラウザ拡張機能</p>
+
+          <p> TRONLINKとは何ですか？ </p>
+
+          <p> TRONLINKは、ブラウザ拡張機能およびモバイルアプリケーションとして使用できます。 TronLinkは、デジタル資産の管理に必要なすべてのキーストア、安全なログイン名、およびトークンウォレットを提供します。 </p>
+
+          <p> TronLinkはデバイス上でパスワードとキーを生成するため、アカウントとデータにアクセスできるのはあなただけです</p>
+
+          <p> TRONLINKブラウザ拡張機能をダウンロードするにはどうすればよいですか？ </p>
+
+          <p>公式ウェブサイト：https：//www.tronbank.cc </p>
+
+          <p> TRONLINKをTRONBANKスマートコントラクトに接続するにはどうすればよいですか？ </p>
+
+          <p> TronLinkを使用してWebブラウザをダウンロードして開きます</p>
+
+          <p> tronbank.cc（参照リンク）と入力し、Enterをクリックします。 </p>
+
+          <p> TRONLINKウォレットがtronbank.ccに接続できるようにします</p>
+
+          <p> * TRON BANKに初めて参加するには、以下の手順に従ってください</p>
+
+          <p>スポンサーの参照リンクをコピーする</p>
+
+          <p> TRONLINK拡張子の付いたPCブラウザの参照リンクを入力します。 </p>
+
+          <p>デポジットする金額、少なくとも100.000TRXを選択します。 </p>
+
+          <p>クリックして参加し、ウォレットでの取引を確認します</p>
+          <br /><a href="/" @click.prevent="tab = 'main'">突っ返す</a>
+        </div>
+      </section>
+      <section class="section" v-show="tab == 'top'">
+        <div class="container">
+          <div class="panel-info">
+            <h3>世界4位ランキング1位</h3>
+            <div>
+              <table
+                style="
+                  text-transform: none;
+                  font-size: 13px;
+                  line-height: 2.5;
+                  width: 100%;
+                "
+              >
+                <thead>
+                  <tr>
+                    <th width="60%">住所</th>
+                    <th width="20%">TRX</th>
+                    <th width="20%">収入</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(v, index) in pool_top">
+                    <td v-text="v.address.substr(0, 16) + '..'"></td>
+                    <td v-text="v.deposit"></td>
+                    <td
+                      v-text="(contract.pool_balance / 1000 * [40,30,20,10][index]).toFixed(4)"
+                    ></td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <div class="panel-info-item">
+                <a class="btn" href="#" @click.prevent="tab = 'main'">突っ返す</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--<div class="i-modal" v-if="upmodal.show">-->
+        <!--<div class="i-modal__wrap">-->
+          <!--<div class="i-modal__close" @click="upmodal.show = false"></div>-->
+          <!--<div class="i-modal__body">-->
+            <!--<div class="i-modal__title">赞助商</div>-->
+            <!--<div class="i-modal__text">-->
+              <!--<div v-if="upmodal.edit">-->
+                <!--<input-->
+                  <!--type="text"-->
+                  <!--style="-->
+                    <!--color: #000;-->
+                    <!--padding: 5px 10px;-->
+                    <!--font: 14px;-->
+                    <!--border: 1px solid #ccc;-->
+                    <!--max-width: 100%;-->
+                  <!--"-->
+                  <!--size="50"-->
+                  <!--v-model="upmodal.upline_edit"-->
+                <!--/><br />-->
+              <!--</div>-->
+
+              <!--<div v-if="!upmodal.edit" style="text-transform: none">-->
+                <!--<span class="addr"-->
+                  <!--&gt;{{ upmodal.upline }} &nbsp;&nbsp;&nbsp; </span-->
+                <!--&gt;<a href="javascript:void()" @click="upmodal.edit = true"-->
+                  <!--&gt;编辑</a-->
+                <!--&gt;-->
+              <!--</div>-->
+              <!--<br />-->
+              <!--<button-->
+                <!--@click="/^T[1-9A-HJ-NP-Za-km-z]{33}$/i.test(upmodal.upline_edit ? upmodal.upline_edit : upmodal.upline) ? (!(upmodal.show = false) && deposit(upmodal.upline_edit ? upmodal.upline_edit : upmodal.upline)) : null"-->
+              <!--&gt;-->
+                <!--加入-->
+              <!--</button>-->
+              <!--<br /><br />-->
+              <!--<p style="text-transform: none">-->
+                <!--检查你的邀请身份证。 br/>你可以改变它之前进行存款。-->
+              <!--</p>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </main>
+    <footer>
+      <div class="footer-content">
+        <a href="https://t.me/trxbankofficial" target="_blank" class="btn"
+          >公式TELEGRAMリンク</a
+        ><a href="tronbank_zh.pdf" target="_blank" class="btn"
+      >監査報告書</a
+      >
+      </div>
+    </footer>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="js/odometer.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
+
+
+    </script>
+    <noscript>
+      <div>
+        <img
+          src="images/66417985.gif"
+          style="position: absolute; left: -9999px"
+          alt
+        />
+      </div>
+    </noscript>
+  </body>
+</html>

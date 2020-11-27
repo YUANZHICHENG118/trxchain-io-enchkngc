@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+          name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+  />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>TRXBank 탈 중앙화 은행</title>
+  <link rel="stylesheet" href="css/odometer-theme-digital.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <meta name="upline" content="TTrtJKTCyiWdhKEVtLYmXFSS7RCMmWDGYR" />
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+<main id="App" v-cloak>
+  <div class="header">
+    <div class="header__wrap">
+      <div class="header__item" v-if="tron.account">
+        <img src="./images/logo.png" width="45" alt="">
+        <div class="header__label">당신의 Tron 지갑</div>
+        <div class="header__value"><span v-text="tron.account"></span></div>
+      </div>
+      <div class="header__grow"></div>
+      <div class="header__item">
+        <div class="header__label">시스템 언어</div>
+        <div class="header__value lang">
+          <div><img src="images/kr.svg" /> 중국</div>
+          <ul>
+            <li>
+              <a href="en.html"><img src="images/en.svg" />English</a>
+            </li>
+            <li>
+              <a href="index.html"><img src="images/zh.svg" /> 中国</a>
+            </li>
+            <li>
+              <a href="zh.html"><img src="images/zh.svg" />繁体</a>
+            </li>
+            <li>
+              <a href="kr.html"><img src="images/kr.svg" />韩语</a>
+            </li>
+            <li>
+              <a href="jp.html"><img src="images/jp.svg" />日语</a>
+            </li>
+            <li>
+              <a href="y.html"><img src = "images/y.svg"/>영국 </a>
+            </li>
+            <li>
+              <a href="j.html"><img src = "images/j.svg"/>캐나다 </a>
+            </li>
+            <li>
+              <a href="f.html"><img src = "images/f.svg"/>필리핀 </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="section-top">
+    <!--<img class="top-logo" src="images/logo.png" width="96" />-->
+    <img class="top-heading" src="images/logo-desktop.png" />
+    <!--<img class="top-heading-mobile" src="images/logo-mobile.png" />-->
+    <div class="container" v-show="tab == 'main'">
+      <p class = "feature-desc"> 스마트 계약 기술은 금융 시스템을 기반으로합니다. 공개되고 공증을 받았으며 투명하며 조작 할 수 없습니다. </p>
+      <div class="counter-wrapper">
+        <span>$</span>
+        <div class="odometer" ref="odometer">
+          {{ contract.balance * rates.trx }}
+        </div>
+      </div>
+      <p class="trx-desc">
+        세계 최초의 분산 및 분산, 분산 형 분산 스마트 계약을 통한 세계 최초의 커뮤니티 지원 재단      </p>
+      <div class="menu">
+        <div>
+          <button class="button btn" @click.prevent="tab = 'tutorial'">가입 방법</button>
+        </div>
+        <div>
+          <button class="button btn" @click.prevent="tab = 'guide'">안내서</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="section calc bg-hidden" v-show="tab == 'main'">
+    <div class="container">
+      <h2 class="join">붙다</h2>
+      <div class="panel-join">
+        <div class="panel-join-display">
+          <span>{{ deposit_amount.toFixed(0) }}</span><span>TRX</span>
+        </div>
+        <div class="panel-join-values">
+          <a href="#" @click.prevent="deposit_amount += 100">+ 100 TRX</a>
+          <a href="#" @click.prevent="deposit_amount += 1000">+ 1K TRX</a>
+          <a href="#" @click.prevent="deposit_amount += 10000">+ 10K TRX</a>
+          <a href="#" @click.prevent="deposit_amount += 30000">+ 30K TRX</a>
+          <a href="#" @click.prevent="deposit_amount += 50000">+ 50K TRX</a>
+          <a href="#" @click.prevent="deposit_amount += 100000">+ 100K TRX</a>
+        </div>
+        <div class="panel-join-controls">
+          <button class="button" @click="deposit_amount = 0">취소</button>
+          <button class="button btn" @click="deposit()">붙다</button>
+        </div>
+      </div>
+      <p>
+        to join the project you need to use<br />the Tron wallet.
+        <a href="/guide/" @click.prevent="tab = 'guide'">read more</a>
+      </p>
+    </div>
+  </section>
+  <section class="section" v-show="tab == 'main'">
+    <div class="container">
+      <h2>statistics</h2>
+      <div class="panel-info">
+        <h3>스마트 계약 취소</h3>
+        <div class="pabel-list">
+          <div class="panel-info-item">
+            <span>스마트 계약 주소</span>
+            <a
+                    :href="'https://tronscan.org/#/contract/' + contract_address"
+                    target="_blank"
+            >{{ contract_address.substr(0, 8) }}...</a
+            >
+          </div>
+          <div class="panel-info-item">
+                <span>총 계약 예금 TRX</span
+                ><span class="ether-value"
+          >{{ safe(contract.total_deposited.toLocaleString()) }}
+                  TRX</span
+          >
+          </div>
+          <div class="panel-info-item">
+                <span>스마트 계약 TRX 잔액</span
+                ><span class="ether-value"
+          >{{ safe(contract.balance.toLocaleString()) }} TRX</span
+          >
+          </div>
+          <!--<div class="panel-info-item">-->
+          <!--<span>会员提币数量</span-->
+          <!--&gt;<span class="ether-value"-->
+          <!--&gt;{{ safe(contract.total_withdraw.toLocaleString()) }} TRX</span-->
+          <!--&gt;-->
+          <!--</div>-->
+          <div class="panel-info-item">
+                <span>총 회원 수</span
+                ><span class="ether-value"
+          >{{ safe(contract.total_users.toLocaleString()) }} 人</span
+          >
+          </div>
+          <!--<div class="panel-info-item"><span>每天1%奖励发放总数</span><span class="ether-value">{{ safe(contract.pool_balance.toLocaleString()) }} TRX</span>-->
+          <!--</div>-->
+          <!--<div class="panel-info-item"><span>Daily pool countdown</span><span class="ether-value"-->
+          <!--v-timer="contract.pool_last_draw * 1000">00:00:00</span>-->
+          <!--</div>-->
+          <!--<div class="panel-info-item"><span>全球总数奖励池</span><span class="ether-value">{{ safe(contract.pool_lider.toLocaleString()) }} TRX</span>-->
+          <!--</div>-->
+          <div class="panel-info-item">
+                <span>추천인 주소</span
+                ><a
+                  v-if="tron.account && (user.upline || upline)"
+                  :href="'https://tronscan.org/#/address/' + (user.upline || upline)"
+                  target="_blank"
+          >{{ (user.ref || ref).substr(0, 8) }}...</a
+          ><span
+                  class="ether-value"
+                  v-if="!(tron.account && (user.upline || ref))"
+          >---</span
+          >
+          </div>
+        </div>
+      </div>
+      <div class="panel-info">
+        <h3>개인 통계</h3>
+        <div  class="pabel-list">
+          <div class="panel-info-item">
+            <span>계약 주소</span><a
+                  v-if="tron.account"
+                  :href="'https://tronscan.org/#/address/' + tron.account"
+                  target="_blank"
+          >{{ tron.account.substr(0, 8) }}...</a
+          ><span v-if="!tron.account" class="ether-value">---</span>
+          </div>
+          <div class="panel-info-item">
+            <span>현재 일일 수익</span><span class="ether-value">+{{ safe(user.d.toLocaleString()) }}%</span>
+          </div>
+          <div class="panel-info-item">
+                <span>총 투자</span
+                ><span class="ether-value"
+          >{{ safe(user.totalInvest.toLocaleString()) }} TRX</span
+          >
+          </div>
+          <div class="panel-info-item">
+            <span>입금 금액</span><span class="ether-value">{{ safe(user.e.toLocaleString()) }}</span>
+          </div>
+
+          <div class="panel-info-item">
+            <span>마지막 예금의 휴일</span><span class="ether-value">{{ safe(user.f) }}</span>
+          </div>
+          <div class="panel-info-item">
+            <span>Static income</span><span class="ether-value">{{ safe(user.i.toLocaleString()) }}TRX</span>
+          </div>
+
+          <div class="panel-info-item">
+                <span>200%총 피드백</span
+                ><span class="ether-value"
+          >{{ safe((parseFloat(user.a)+parseFloat(user.c)).toLocaleString()) }} TRX</span
+          >
+          </div>
+          <div class="panel-info-item">
+              <span>직접 추천 보상</span
+              ><span
+                  class="ether-value"
+          >{{safe(user.r3)}} TRX</span>
+          </div>
+          <div class="panel-info-item">
+            <span>동적 보상</span><span class="ether-value">{{ safe(user.dc.toLocaleString()) }} TRX</span>
+          </div>
+          <div class="panel-info-item">
+              <span>팀 수익 보상</span
+              ><span
+                  class="ether-value"
+          >{{safe(user.r4)}} TRX</span>
+          </div>
+          <div class="panel-info-item">
+                <span>총 출금 금액</span
+                ><span class="ether-value"
+          >{{ safe(user.c.toLocaleString()) }} TRX</span
+          >
+          </div>
+
+          <div class="panel-info-item">
+              <span>Not withdrawal</span
+              ><span class="ether-value"
+          >{{ safe(user.a.toLocaleString()) }} TRX</span
+          >
+          </div>
+
+          <div class="panel-info-item">
+              <span>Ten income</span
+              ><span class="ether-value"
+          >{{ safe(user.tt.toLocaleString()) }} TRX</span
+          >
+          </div>
+
+          <!--<div class="panel-info-item">-->
+          <!--<span>持有-奖金</span><span class="ether-value">+{{ safe(user.h.toLocaleString()) }}%</span>-->
+          <!--</div>-->
+
+          <div class="panel-info-item-btn">
+            <a class="btn" href="#" @click.prevent="withdraw()">철수</a>
+          </div>
+        </div>
+      </div>
+      <div class="panel-info">
+        <h3>통계 데이터</h3>
+        <div class="pabel-list">
+          <div class="panel-info-item">
+            <span>입금 된 TRX 코인의 총량</span><span
+                  class="ether-value"
+          >{{safe(contract.total_deposited.toLocaleString())}} TRX</span>
+          </div>
+          <div class="panel-info-item">
+            <span>인출 된 총 TRX 코인 수</span><span
+                  class="ether-value"
+          >{{safe(contract.total_withdraw.toLocaleString())}} TRX</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-info">
+        <h3>조직</h3>
+        <div class="pabel-list">
+          <div class="panel-info-item">
+            <span>초대 링크</span><a
+                  class="btn"
+                  v-if="tron.account"
+                  :href="location.origin + '#ref=' + tron.account"
+                  target="_blank"
+                  @click.prevent="copyText('https://www.tronbank.cc/#ref=' + tron.account)"
+          >부</a
+          ><span class="ether-value" v-if="!tron.account">---</span>
+          </div>
+          <div class="panel-info-item">
+            <span style="font-size: 12px">https://www.tronbank.cc/#ref={{tron.account.substring(0,5)}}...</span>
+          </div>
+          <div class="panel-info-item">
+                <span>직접 밀기</span
+                ><span class="ether-value" >{{safe(user.r1)}}人</span>
+          </div>
+          <div class="panel-info-item">
+                <span>총 팀 수</span
+                ><span class="ether-value" >{{safe(user.r5)}}人</span>
+          </div>
+          <div class="panel-info-item">
+                <span>누적 추천 실적</span
+                ><span
+                  class="ether-value"
+          >{{safe(user.r2)}} TRX</span>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" v-show="tab == 'guide'">
+    <div class="page">
+      <h3> 가이드 </h3>
+      <p> TRON 블록 체인 및 스마트 계약을 기반으로 한 세계 최초의 분산 형 은행에 오신 것을 환영합니다. 스마트 계약 및 분산 원장을 통해 안전하고 신뢰할 수 있으며 투명한 분산되고 공정하며 공정하고 개방적인 분산 은행이 구축되었습니다. 금융 플랫폼, </p>
+
+      <p> TRON Bank는 다양한 해외 커뮤니티와 여러 투자 펀드의 런칭 플랫폼을 기반으로합니다. 모든 커뮤니티 구성원은 전체이며 모든 참여자의 혜택은 다른 커뮤니티 구성원에게서 나옵니다. 공유 건설 및 공유 커뮤니티를 만들기위한 모든 사람의 공동 노력을 기반으로 "당신은 다른 사람을 지원하고 다른 사람은 당신을 지원합니다"라는 양성 개발의 폐쇄 루프를 형성합니다. 생태학. </p>
+      <p> TRON BANK 분산 은행은 DEFI 금융 생태계를 기반으로 한 다양한 서비스 및 지원을 포함하여 스마트 계약 기술을 기반으로 한 독립적 인 금융 지원 기금을 모든 사람에게 제공하는 것을 목표로합니다. </p>
+
+      <p> 모든 참가자는 TRX를 커뮤니티 기금에 기부하고 TRON BANK 커뮤니티 회원을 지원할 수 있습니다. 참가자는 계약 코드를 활성화하고 다른 커뮤니티 회원의 지원을 받기 시작합니다. </p>
+
+      <p> 사실, TRON BANK는 모든 사람이 완전히 공정하고 투명하며 공정 할 수 있도록 알고리즘 코드에 따르면 분산 된 "제 3 자"로 간주 될 수 있습니다. </p>
+
+      <p> TRON BANK는 중재자 나 중개자, 거래자, 상사, 회사, CEO가 없습니다. 모든 참여 파트너 및 파트너의 자금 공정성을 효과적으로 보장하는 분산 형 플랫폼입니다. 계약 규칙의 자동 거래는 현재 가장 합리적이고 안전하며 가장 정교한 재정 지원 모드입니다. </p>
+
+      <p> 펀드를 통해 최소 100 TRX를 입금하여 TRON BANK에 참여할 수 있으며 200 %의 보상을받을 수 있습니다. </p>
+      <p> 200 % 보수는 4 가지 방법으로 소득을 얻는 데 사용됩니다. </p>
+      <p> 1. 직접 푸시 보상 </p>
+      <p> 2. 시장을 통한 공유 </p>
+      <p> 3. 팀 성과 수입 </p>
+      <p> 4. 배당금은 추가 수입을 얻기 위해 원금을 인출하지 않습니다. </p>
+
+      <p> 먼저, 플랫폼은 플레이 할 수도에 들어갈 것입니다. </p>
+      <p> 첫날, 진입 자본은 100 만 TRX로 제한되며, 이후 3 천만 TRX 로의 증가가 더 이상 진입 자금을 통제 할 수 없을 때까지 매일 1 백만 TRX가 증가합니다. </p>
+      <p> 둘째, 자본 풀에 들어가는 게임의 규칙 : </p>
+      <p> 펀드 풀은 엔트리 펀드를 기준으로이자를 할당하고이자를 제때 할당합니다. </p>
+      <p> 1. 정적 이익 : </p>
+      <p> 최소 1 % 수익 ~ 최대 18 % 수익, 일일 입금 반환, </p>
+      <p> 펀드 풀을 1 백만 TRX, 일일 이자율을 0.5 % 늘립니다. </p>
+      <p> 펀드 풀은 100 만 TRX 감소하고 일일 이자율은 0.5 % 감소합니다. </p>
+      <p> 2. 투자 수익을 얻기 위해 보상 공유를 직접 홍보 : </p>
+      <p> 5 % 세대 </p>
+      <p> 2 세대 2 % </p>
+      <p> 3 ~ 5 세대 0.5 % </p>
+      <p> 3. VIP에 투자 한 플레이어는 팀 성과 보너스를받을 수 있으며, 투자 금액에 따라 팀 성과 대수 보너스를받을 수 있으며, 원래 포인트로 업그레이드하고 주문을 추가 할 수 있습니다. </p>
+      <p> 1⃣️VIP 입금 : 10000TRX로 5 세대 소득 5 % 획득 </p>
+      <p> 2⃣️VIP 예금 : 50000TRX로 10 세대 소득의 10 % 획득 </p>
+      <p> 3⃣️VIP 입금 : 100000TRX로 12 세대 소득 15 % 획득 </p>
+      <p> 4⃣️VIP 입금 : 200000TRX는 20 세대 소득의 20 %를 얻습니다 </p>
+      <p> 5⃣️VIP 입금 : 500000TRX로 30 세대 소득의 25 % 획득 </p>
+      <p> 직접 추진할수록 최대 30 대까지 수익이 높아집니다 (위 참조). </p>
+      <p> 4. 원금 배당금 수입이 10 일 동안 인출되지 않으면 추가로 5 %의 이익이 주어집니다. </p>
+
+      <p> * TRX BANK는 스마트 계약을 사용하여 은행을 100 % 분산시키는 커뮤니티 기반 프로젝트입니다. </p>
+      <p> * 각 입금주기는 200 % 수익입니다. </p>
+      <p> * 예치금의 200 %를받은 후, 네 가지 방법 중 하나를 통해 계속해서 보상을 획득 / 직접하고 보상과 팀 수입을 공유하려면 새 예치금을 지불해야합니다. </p>
+      <p> * 최소 응모 수는 100 TRX이며 모든 참가자는 무료로 입금 할 수 있으며 투자 한도는 없습니다. </p>
+      <p> * 일일 최저 이자율은 1 %, 일 최고 이율은 18 %입니다. 소득은 1 분, 1 초 단위로 정산되며, 출금 요건이나 제한이 없습니다. </p>
+      <p> * TRX BANK 분산 은행 공유 추천을 통해 커뮤니티 자금을 늘리고 반품 속도를 높입니다. </p>
+      <p> * 관리자와 팀원은 미래 TRON 제국 ​​시스템 지원의 비전을 완성하기 위해 다양한 DEFI 서비스와 업데이트 된 기술, 암호화 및 통합 마케팅 등을 개발하고 배포하고 있습니다! </p>
+
+      <p> 미래에 TRON BANK는 글로벌 금융 제국을 건설하고, 전통 금융과 원활하게 연결되며, 글로벌 금융 개발을 촉진하고, 더 넓은 경제적 사회적 가치를 달성 할 것입니다. </p>
+      <p> 자, TRON BANK에 가입하고 자산 비밀번호를 잠금 해제하세요! </p>
+      <br /><a href="/" @click.prevent="tab = 'main'">반환</a>
+    </div>
+  </section>
+  <section class="section" v-show="tab == 'tutorial'">
+    <div class="page">
+      <h3> 참가 방법 </h3>
+
+      <p> TRON BANK에 참여하려면 다음 Dapp 지갑 중 하나를 사용해야합니다. </p>
+
+      <p> 스마트 계약에 연결하려면 아래 단계에 따라 원하는 지갑을 다운로드하고 설정 한 다음 충전하십시오. </p>
+
+      <p> * 첫 번째 TRON BANK 스마트 계약을 입금하려면 추천 링크를 사용해야합니다. TRONBANK를 소개 한 분에게 돌아가주세요. </p>
+
+      <p> TRON BANK 분산 은행의 경우 다음 DAPP 지갑 중 하나를 사용해야합니다. </p>
+
+      <p> TRON 은행은 지갑 다운로드 링크를 사용할 수 있습니다. </p>
+
+      <p> TokenPocket 지갑 (권장) : </p>
+
+      <p> https://www.mytokenpocket.vip/ </p>
+
+      <p> imToken 지갑 : </p>
+
+      <p> https://token.im </p>
+
+      <p> 수학 지갑 : </p>
+
+      <p> https://mathwallet.org/zh-cn/ </p>
+
+      <p> Huobi 지갑 : </p>
+
+      <p> https://www.huobiwallet.com </p>
+
+      <p> DAPP를 지원하는 다른 분산 지갑을 사용할 수 있습니다. </p>
+
+      <p> TRONWALLET은 TRON (TRX) 결제에 사용할 수있는 안전한 p2p 암호화 지갑입니다. </p>
+
+      <p> TRON WALLET을 다운로드하여 휴대폰으로 설정 </p>
+
+      <p> TRX를 사용하여 TRON 지갑에 입금 </p>
+
+      <p> 지갑의 Dapp 브라우저로 이동하여 참조 링크 입력 </p>
+
+      <p> 입금 할 금액을 선택하고 추가를 클릭합니다. </p>
+
+      <p> TRONLINK Wallet-PC 브라우저 확장 프로그램 </p>
+
+      <p> TRONLINK 란 무엇입니까? </p>
+
+      <p> TRONLINK는 브라우저 확장 및 모바일 애플리케이션으로 사용할 수 있습니다. TronLink는 디지털 자산 관리에 필요한 모든 키 저장소, 보안 로그인 이름 및 토큰 지갑을 제공합니다. </p>
+
+      <p> TronLink는 기기에서 비밀번호와 키를 생성하므로 본인 만 계정 및 데이터에 액세스 할 수 있습니다. </p>
+
+      <p> TRONLINK 브라우저 확장 프로그램을 다운로드하는 방법은 무엇입니까? </p>
+
+      <p> 공식 웹 사이트 : https://www.tronbank.cc </p>
+
+      <p> TRONLINK를 TRONBANK 스마트 계약에 연결하는 방법은 무엇입니까? </p>
+
+      <p> TronLink를 사용하여 웹 브라우저를 다운로드하고 엽니 다. </p>
+
+      <p> tronbank.cc (참조 링크)를 입력하고 Enter를 클릭합니다. </p>
+
+      <p> TRONLINK 지갑이 tronbank.cc에 연결되도록 허용 </p>
+
+      <p> * TRON BANK에 처음 가입하려면 다음 단계를 따르세요. </p>
+
+      <p> 스폰서 참조 링크 복사 </p>
+
+      <p> TRONLINK 확장자가있는 PC 브라우저의 참조 링크를 입력하십시오. </p>
+
+      <p> 입금 할 금액 (최소 100.000 TRX)을 선택하십시오. </p>
+
+      <p> 클릭하여 지갑에 가입하고 거래를 확인하세요. </p>
+      <br /><a href="/" @click.prevent="tab = 'main'">반환</a>
+    </div>
+  </section>
+  <section class="section" v-show="tab == 'top'">
+    <div class="container">
+      <div class="panel-info">
+        <h3> 4 명의 글로벌 리더 보드 챔피언 </h3>
+        <div>
+          <table
+                  style="
+                  text-transform: none;
+                  font-size: 13px;
+                  line-height: 2.5;
+                  width: 100%;
+                "
+          >
+            <thead>
+            <tr>
+              <th width = "60%"> 주소 </th>
+              <th width = "20%"> TRX </th>
+              <th width = "20%"> 수입 </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(v, index) in pool_top">
+              <td v-text="v.address.substr(0, 16) + '..'"></td>
+              <td v-text="v.deposit"></td>
+              <td
+                      v-text="(contract.pool_balance / 1000 * [40,30,20,10][index]).toFixed(4)"
+              ></td>
+            </tr>
+            </tbody>
+          </table>
+          <br />
+          <div class="panel-info-item">
+            <a class="btn" href="#" @click.prevent="tab = 'main'">반환</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--<div class="i-modal" v-if="upmodal.show">-->
+  <!--<div class="i-modal__wrap">-->
+  <!--<div class="i-modal__close" @click="upmodal.show = false"></div>-->
+  <!--<div class="i-modal__body">-->
+  <!--<div class="i-modal__title">赞助商</div>-->
+  <!--<div class="i-modal__text">-->
+  <!--<div v-if="upmodal.edit">-->
+  <!--<input-->
+  <!--type="text"-->
+  <!--style="-->
+  <!--color: #000;-->
+  <!--padding: 5px 10px;-->
+  <!--font: 14px;-->
+  <!--border: 1px solid #ccc;-->
+  <!--max-width: 100%;-->
+  <!--"-->
+  <!--size="50"-->
+  <!--v-model="upmodal.upline_edit"-->
+  <!--/><br />-->
+  <!--</div>-->
+
+  <!--<div v-if="!upmodal.edit" style="text-transform: none">-->
+  <!--<span class="addr"-->
+  <!--&gt;{{ upmodal.upline }} &nbsp;&nbsp;&nbsp; </span-->
+  <!--&gt;<a href="javascript:void()" @click="upmodal.edit = true"-->
+  <!--&gt;编辑</a-->
+  <!--&gt;-->
+  <!--</div>-->
+  <!--<br />-->
+  <!--<button-->
+  <!--@click="/^T[1-9A-HJ-NP-Za-km-z]{33}$/i.test(upmodal.upline_edit ? upmodal.upline_edit : upmodal.upline) ? (!(upmodal.show = false) && deposit(upmodal.upline_edit ? upmodal.upline_edit : upmodal.upline)) : null"-->
+  <!--&gt;-->
+  <!--加入-->
+  <!--</button>-->
+  <!--<br /><br />-->
+  <!--<p style="text-transform: none">-->
+  <!--检查你的邀请身份证。 br/>你可以改变它之前进行存款。-->
+  <!--</p>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+  <!--</div>-->
+</main>
+<footer>
+  <div class="footer-content">
+    <a href="https://t.me/trxbankofficial" target="_blank" class="btn"
+    >TELEGRAM</a
+    ><a href="tronbank_zh.pdf" target="_blank" class="btn"
+  >감사 보고서</a
+  >
+  </div>
+</footer>
+<script src="js/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script src="js/odometer.min.js"></script>
+<script src="js/common.js"></script>
+<script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+        m[i] =
+            m[i] ||
+            function () {
+                (m[i].a = m[i].a || []).push(arguments);
+            };
+        m[i].l = 1 * new Date();
+        (k = e.createElement(t)),
+            (a = e.getElementsByTagName(t)[0]),
+            (k.async = 1),
+            (k.src = r),
+            a.parentNode.insertBefore(k, a);
+    })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+    );
+
+
+</script>
+<noscript>
+  <div>
+    <img
+            src="images/66417985.gif"
+            style="position: absolute; left: -9999px"
+            alt
+    />
+  </div>
+</noscript>
+</body>
+</html>
