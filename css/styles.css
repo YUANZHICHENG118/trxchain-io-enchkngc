@@ -592,6 +592,16 @@ a {
     width: 20px;
     margin: 0 5px 0 0;
 }
+.play-introduce{
+    height:356px;
+    width:80%;
+    margin: 0 auto;
+    background:url("../images/play-backImg.png")no-repeat center ;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @media (max-width: 1500px) {
     .section-top .top-logo {
