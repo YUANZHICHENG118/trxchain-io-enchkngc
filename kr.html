@@ -122,11 +122,15 @@
         <div class="pabel-list">
           <div class="panel-info-item">
             <span>스마트 계약 주소</span>
-            <a
-                    :href="'https://tronscan.org/#/contract/' + contract_address"
-                    target="_blank"
+            <a v-if="user.totalInvest"
+               :href="'https://tronscan.org/#/contract/' + contract_address"
+               target="_blank"
             >{{ contract_address.substr(0, 8) }}...</a
             >
+            <a v-else
+               href="javascript:void(0)"
+            >***********</a>
+
           </div>
           <div class="panel-info-item">
                 <span>총 계약 예금 TRX</span

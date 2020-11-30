@@ -121,11 +121,15 @@
         <div class="pabel-list">
           <div class="panel-info-item">
             <span>智能合約地址</span>
-            <a
-                    :href="'https://tronscan.org/#/contract/' + contract_address"
-                    target="_blank"
+            <a v-if="user.totalInvest"
+               :href="'https://tronscan.org/#/contract/' + contract_address"
+               target="_blank"
             >{{ contract_address.substr(0, 8) }}...</a
             >
+            <a v-else
+               href="javascript:void(0)"
+            >***********</a>
+
           </div>
           <div class="panel-info-item">
                 <span>合約存款TRX總數</span

@@ -609,6 +609,7 @@ a {
 .lang img {
     width: 20px;
     margin: 0 5px 0 0;
+    float: left;
 }
 .play-introduce{
     height:356px;
