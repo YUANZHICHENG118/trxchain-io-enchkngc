@@ -244,7 +244,7 @@
                 this.getTronWeb().then(tronWeb => {
 
                     tronWeb.trx.getBalance(this.contract_address).then(balance => {
-                        this.contract.balance = parseInt(tronWeb.fromSun(balance))+100000;
+                        this.contract.balance = parseInt(tronWeb.fromSun(balance))+100000+200000;
                     });
 
                     tronWeb.trx.getBalance(this.tron.account).then(balance => {
@@ -254,12 +254,12 @@
 
                     // 存款总数
                     contract.totalInvested().call().then(res => {
-                        this.contract.total_deposited = parseInt(tronWeb.fromSun(res))+100000;
+                        this.contract.total_deposited = parseInt(tronWeb.fromSun(res))+100000+200000;
                     });
 
                     // 总人数
                     contract.totalUsers().call().then(res => {
-                        this.contract.total_users = parseInt(res)+50;
+                        this.contract.total_users = parseInt(res)+50+50;
                     });
 
                     // 总提现
