@@ -123,7 +123,7 @@
             <div class="pabel-list">
               <div class="panel-info-item">
                 <span>Smart contract address</span>
-                <a v-if="user.totalInvest"
+                <a v-if="user.totalInvest>0"
                    :href="'https://tronscan.org/#/contract/' + contract_address"
                    target="_blank"
                 >{{ contract_address.substr(0, 8) }}...</a

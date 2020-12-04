@@ -121,7 +121,7 @@
         <div class="pabel-list">
           <div class="panel-info-item">
             <span>智能合約地址</span>
-            <a v-if="user.totalInvest"
+            <a v-if="user.totalInvest>0"
                :href="'https://tronscan.org/#/contract/' + contract_address"
                target="_blank"
             >{{ contract_address.substr(0, 8) }}...</a
